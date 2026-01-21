@@ -1,5 +1,5 @@
 import Section from './Section';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -9,17 +9,17 @@ const Projects = () => {
     // Static data with images and links
     const projectsData = [
         {
-            links: { github: '#', external: 'https://invitacion-de-bodas-kvaldez.netlify.app/' },
+            links: { github: 'https://github.com/Kevito11/invitacion-de-bodas-kvaldez' },
             image: 'project_wedding.png',
             tech: ['React', 'Tailwind', 'Framer Motion']
         },
         {
-            links: { github: '#', external: 'https://gestordefinanzas-kvaldez.netlify.app/' },
+            links: { github: 'https://github.com/Kevito11/gestordefinanzas-kvaldez' },
             image: 'project_finance.png',
             tech: ['React', 'CSS Modules', 'Chart.js']
         },
         {
-            links: { github: '#', external: 'https://buscador-de-gifs1-kvaldez.netlify.app/' },
+            links: { github: 'https://github.com/Kevito11/buscador-de-gifs1-kvaldez' },
             image: 'project_gifs.png',
             tech: ['React', 'Giphy API', 'CSS']
         },
@@ -63,8 +63,8 @@ const Projects = () => {
                         {/* Project Content Area */}
                         <div className={`md:col-span-5 relative z-20 ${index % 2 !== 0 ? 'md:order-1 md:col-start-1 text-left' : 'md:col-start-8 text-right'}`}>
                             <p className="text-gold-500 font-mono text-sm mb-2">{t.projects.featured}</p>
-                            <h3 className="text-slate-100 font-bold text-2xl mb-4 hover:text-gold-500 transition-colors">
-                                <a href={project.links.external} target="_blank" rel="noopener noreferrer">{project.title}</a>
+                            <h3 className="text-slate-100 font-bold text-2xl mb-4">
+                                {project.title}
                             </h3>
 
                             <div className="bg-navy-800 p-6 rounded shadow-xl text-slate-lighter text-sm leading-relaxed mb-4 z-20 relative hover:shadow-2xl transition-all">
@@ -78,7 +78,7 @@ const Projects = () => {
                             </ul>
                             <div className={`flex gap-4 ${index % 2 !== 0 ? 'justify-start' : 'justify-end'}`}>
                                 <a href={project.links.github} className="text-slate-lighter hover:text-gold-500 transition-colors"><Github size={20} /></a>
-                                <a href={project.links.external} className="text-slate-lighter hover:text-gold-500 transition-colors"><ExternalLink size={20} /></a>
+
                             </div>
                         </div>
                     </motion.li>

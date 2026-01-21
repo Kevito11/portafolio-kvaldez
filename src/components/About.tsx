@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import Section from './Section';
-import profileOriginal from '../assets/profile-original.jpg';
 import profileNew from '../assets/profile-new.jpg';
 import { useLanguage } from '../context/LanguageContext';
 
 const About = () => {
     const { t } = useLanguage();
-    const [showLegacyPhoto, setShowLegacyPhoto] = useState(false);
 
     const traits = [
         t.about.traits.analytical,
@@ -50,54 +47,19 @@ const About = () => {
                 </div>
 
                 <div className="md:col-span-1 flex justify-center md:block relative h-[350px] sm:h-[400px]">
-                    {/* Container for the deck */}
-                    <div
-                        className="relative w-full max-w-xs mx-auto md:mx-0 h-full cursor-pointer group"
-                        onClick={() => setShowLegacyPhoto(!showLegacyPhoto)}
-                    >
-
-                        {/* New Photo (Active or Back) */}
-                        <div
-                            className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-                                ${!showLegacyPhoto
-                                    ? 'z-20 scale-100 rotate-0 translate-x-0 translate-y-0 opacity-100'
-                                    : 'z-10 scale-95 rotate-6 translate-x-6 translate-y-6 opacity-60 group-hover:opacity-80 grayscale'
-                                }
-                            `}
-                        >
+                    <div className="relative w-full max-w-xs mx-auto md:mx-0 h-full group">
+                        <div className="absolute inset-0 transition-all duration-300 z-20 translate-x-0 translate-y-0 opacity-100">
                             <div className="relative w-full h-full">
-                                <div className={`absolute inset-0 bg-gold-500 rounded transition-transform duration-500 ${!showLegacyPhoto ? 'translate-x-3 translate-y-3' : 'translate-x-1 translate-y-1'}`}></div>
+                                <div className="absolute inset-0 bg-gold-500 rounded translate-x-3 translate-y-3"></div>
                                 <div className="absolute inset-0 bg-navy-800 rounded border-2 border-gold-500 overflow-hidden">
                                     <img
                                         src={profileNew}
                                         alt="Kevin Valdez"
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                 </div>
                             </div>
                         </div>
-
-                        {/* Original Photo (Active or Back) */}
-                        <div
-                            className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-                                ${showLegacyPhoto
-                                    ? 'z-20 scale-100 rotate-0 translate-x-0 translate-y-0 opacity-100'
-                                    : 'z-10 scale-95 -rotate-6 -translate-x-4 -translate-y-4 opacity-60 group-hover:opacity-80 grayscale'
-                                }
-                            `}
-                        >
-                            <div className="relative w-full h-full">
-                                <div className={`absolute inset-0 bg-gold-500 rounded transition-transform duration-500 ${showLegacyPhoto ? 'translate-x-3 translate-y-3' : 'translate-x-1 translate-y-1'}`}></div>
-                                <div className="absolute inset-0 bg-navy-800 rounded border-2 border-gold-500 overflow-hidden">
-                                    <img
-                                        src={profileOriginal}
-                                        alt="Kevin Valdez Legacy"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
