@@ -7,6 +7,7 @@ const Skills = () => {
 
     const skills = [
         { name: 'React JS', category: 'Frontend' },
+        { name: 'TypeScript', category: 'Frontend' },
         { name: 'Flutter', category: 'Mobile' },
         { name: 'C#', category: 'Backend' },
         { name: 'SQL Server', category: 'Base de Datos' }, // 'Database' in English

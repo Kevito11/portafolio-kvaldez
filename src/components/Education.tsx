@@ -28,7 +28,7 @@ const Education = () => {
 
                         <h3 className="text-2xl font-bold text-slate-100 mb-1">{item.degree}</h3>
                         <span className="text-gold-500 font-mono text-sm mb-2 block">{item.institution}</span>
-                        <span className="text-slate-lighter text-sm font-mono block">{item.date}</span>
+                        {item.date && <span className="text-slate-lighter text-sm font-mono block">{item.date}</span>}
                     </motion.div>
                 ))}
             </div>

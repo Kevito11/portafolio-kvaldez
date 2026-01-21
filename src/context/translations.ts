@@ -36,17 +36,17 @@ export const translations = {
                 {
                     institution: 'Talento Digital',
                     degree: 'Desarrollo Web Full Stack',
-                    date: '2026'
+                    date: ''
                 },
                 {
                     institution: 'UDEMY',
                     degree: 'Flutter y Desarrollo Móvil',
-                    date: 'Febrero 2025 - Actual'
+                    date: ''
                 },
                 {
                     institution: 'UDEMY',
                     degree: 'React',
-                    date: 'Julio 2025 - Actual'
+                    date: ''
                 }
             ]
         },
@@ -123,17 +123,17 @@ export const translations = {
                 {
                     institution: 'Talento Digital',
                     degree: 'Full Stack Web Development',
-                    date: '2026'
+                    date: ''
                 },
                 {
                     institution: 'UDEMY',
                     degree: 'Flutter & Mobile Development',
-                    date: 'February 2025 - Present'
+                    date: ''
                 },
                 {
                     institution: 'UDEMY',
                     degree: 'React',
-                    date: 'July 2025 - Present'
+                    date: ''
                 }
             ]
         },
