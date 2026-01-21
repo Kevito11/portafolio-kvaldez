@@ -11,14 +11,14 @@ export const translations = {
         },
         hero: {
             greeting: 'HOLA, MI NOMBRE ES',
-            role: 'Desarrollador Full Stack Junior.',
+            role: 'Desarrollador Full Stack.',
             description: 'Me especializo en construir experiencias digitales excepcionales. Actualmente enfocado en crear productos accesibles y centrados en el usuario.',
             cta: 'Ver mis Proyectos'
         },
         about: {
             title: 'Sobre Mí',
             p1: '¡Hola! Soy Kevin, <gold>Ingeniero en Sistemas</gold> con gran pasión por el desarrollo de software y la resolución de problemas técnicos. Me destaco por mi capacidad de aprender rápido, adaptarme a equipos de trabajo dinámicos y aportar soluciones funcionales desde el primer día.',
-            p2: 'Con base en <gold>República Dominicana</gold>, mi interés va desde el desarrollo web hasta aplicaciones móviles. Me encuentro preparado para integrarme a equipos de alto rendimiento como <gold>Desarrollador Junior</gold>, aportando valor y creciendo profesionalmente en cada proyecto.',
+            p2: 'Con base en <gold>República Dominicana</gold>, mi interés va desde el desarrollo web hasta aplicaciones móviles. Me encuentro preparado para integrarme a equipos de alto rendimiento como <gold>Desarrollador</gold>, aportando valor y creciendo profesionalmente en cada proyecto.',
             traits: {
                 analytical: { title: 'Analítico', desc: 'Descompongo problemas complejos en soluciones lógicas.' },
                 creative: { title: 'Creativo', desc: 'Diseño experiencias memorables y visualmente atractivas.' },
@@ -98,14 +98,14 @@ export const translations = {
         },
         hero: {
             greeting: 'HI, MY NAME IS',
-            role: 'Junior Full Stack Developer.',
+            role: 'Full Stack Developer.',
             description: 'I specialize in building exceptional digital experiences. Currently focused on creating accessible, user-centered products.',
             cta: 'Check out my work'
         },
         about: {
             title: 'About Me',
             p1: 'Hello! I\'m Kevin, a <gold>Systems Engineer</gold> with a passion for software development and technical problem solving. I stand out for my ability to learn quickly, adapt to dynamic teams, and deliver functional solutions from day one.',
-            p2: 'Based in the <gold>Dominican Republic</gold>, my interest ranges from web development to mobile apps. I am ready to join high-performance teams as a <gold>Junior Developer</gold>, adding value and growing professionally in every project.',
+            p2: 'Based in the <gold>Dominican Republic</gold>, my interest ranges from web development to mobile apps. I am ready to join high-performance teams as a <gold>Developer</gold>, adding value and growing professionally in every project.',
             traits: {
                 analytical: { title: 'Analytical', desc: 'I break down complex problems into logical solutions.' },
                 creative: { title: 'Creative', desc: 'I design memorable and visually appealing experiences.' },
