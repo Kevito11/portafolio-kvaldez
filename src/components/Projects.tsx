@@ -1,5 +1,5 @@
 import Section from './Section';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -9,19 +9,36 @@ const Projects = () => {
     // Static data with images and links
     const projectsData = [
         {
-            links: { github: 'https://github.com/Kevito11/invitacion-de-bodas-kvaldez' },
+            links: {
+                github: 'https://github.com/Kevito11/BarberShop-2-kvaldez',
+                demo: 'https://barbershop-2-kvaldez.netlify.app/'
+            },
+            image: 'project_barbershop.png',
+            tech: ['React', 'TypeScript', 'Firebase', 'Framer Motion', 'EmailJS']
+        },
+        {
+            links: {
+                github: 'https://github.com/Kevito11/invitacion-de-bodas-kvaldez',
+                demo: 'https://invitacion-de-bodas-kvaldez.netlify.app/'
+            },
             image: 'project_wedding.png',
-            tech: ['React', 'Tailwind', 'Framer Motion']
+            tech: ['React', 'TypeScript', 'Supabase', 'React Router', 'Lucide']
         },
         {
-            links: { github: 'https://github.com/Kevito11/gestordefinanzas-kvaldez' },
+            links: {
+                github: 'https://github.com/Kevito11/gestordefinanzas-kvaldez',
+                demo: 'https://gestordefinanzas-kvaldez.netlify.app/'
+            },
             image: 'project_finance.png',
-            tech: ['React', 'CSS Modules', 'Chart.js']
+            tech: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'TypeScript']
         },
         {
-            links: { github: 'https://github.com/Kevito11/buscador-de-gifs1-kvaldez' },
+            links: {
+                github: 'https://github.com/Kevito11/buscador-de-gifs1-kvaldez',
+                demo: 'https://buscador-de-gifs1-kvaldez.netlify.app/'
+            },
             image: 'project_gifs.png',
-            tech: ['React', 'Giphy API', 'CSS']
+            tech: ['React', 'TypeScript', 'Axios', 'Vitest', 'Giphy API']
         },
     ];
 
@@ -38,7 +55,7 @@ const Projects = () => {
                 <div className="h-[1px] bg-navy-700 w-full ml-4"></div>
             </div>
 
-            <ul className="space-y-24 max-w-5xl mx-auto">
+            <ul className="space-y-12 md:space-y-24 max-w-5xl mx-auto">
                 {projects.map((project, index) => (
                     <motion.li
                         key={index}
@@ -77,19 +94,33 @@ const Projects = () => {
                                 ))}
                             </ul>
                             <div className={`flex gap-4 ${index % 2 !== 0 ? 'justify-start' : 'justify-end'}`}>
-                                <a href={project.links.github} className="text-slate-lighter hover:text-gold-500 transition-colors"><Github size={20} /></a>
-
+                                <a
+                                    href={project.links.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-4 py-2 border border-gold-500 text-gold-500 rounded hover:bg-gold-500 hover:text-navy-900 transition-all font-mono text-sm"
+                                    aria-label="GitHub Repo"
+                                >
+                                    <Github size={18} /> <span>GitHub</span>
+                                </a>
+                                {project.links.demo && (
+                                    <a
+                                        href={project.links.demo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 px-4 py-2 border border-gold-500 text-gold-500 rounded hover:bg-gold-500 hover:text-navy-900 transition-all font-mono text-sm"
+                                        aria-label="Live Demo"
+                                    >
+                                        <ExternalLink size={18} /> <span>Demo</span>
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </motion.li>
                 ))}
             </ul>
 
-            <div className="mt-20 text-center">
-                <a href="#" className="inline-block px-8 py-4 border border-gold-500 text-gold-500 rounded font-mono hover:bg-gold-500/10 transition-colors">
-                    Ver Archivo Completo
-                </a>
-            </div>
+
         </Section>
     );
 };

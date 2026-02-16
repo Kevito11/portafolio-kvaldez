@@ -27,7 +27,7 @@ const About = () => {
                 <div className="h-[1px] bg-navy-700 w-full ml-4"></div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
                 <div className="md:col-span-2">
                     <p className="text-slate-lighter text-lg leading-relaxed mb-6">
                         {renderText(t.about.p1)}

@@ -59,6 +59,10 @@ export const translations = {
             viewArchive: 'Ver Archivo Completo',
             list: [
                 {
+                    title: 'Barber Shop - Landing Page',
+                    description: 'Una página web moderna para una barbería, diseñada para mostrar servicios, precios y horarios. Totalmente responsiva y optimizada para una experiencia de usuario fluida.'
+                },
+                {
                     title: 'BodaDigital - Invitación Interactiva',
                     description: 'Una plataforma digital interactiva para crear y gestionar invitaciones de boda personalizadas con un diseño elegante y moderno. Facilita la confirmación de asistencia y la ubicación del evento.'
                 },
@@ -73,7 +77,7 @@ export const translations = {
             ]
         },
         contact: {
-            subtitle: '04. ¿Qué sigue?',
+            subtitle: '05. ¿Qué sigue?',
             title: 'Ponte en Contacto',
             text: 'Siempre estoy interesado en conectar con otros profesionales y explorar nuevas colaboraciones tecnológicas. Si tienes una propuesta o simplemente quieres saludar, ¡será un gusto conversar!',
             cta: 'Contáctame',
@@ -146,6 +150,10 @@ export const translations = {
             viewArchive: 'View Full Archive',
             list: [
                 {
+                    title: 'Barber Shop - Landing Page',
+                    description: 'A modern landing page for a barbershop, designed to showcase services, pricing, and hours. Fully responsive and optimized for a smooth user experience.'
+                },
+                {
                     title: 'BodaDigital - Interactive Invitation',
                     description: 'An interactive digital platform to create and manage personalized wedding invitations with an elegant and modern design. Facilitates RSVP and event location.'
                 },
@@ -160,7 +168,7 @@ export const translations = {
             ]
         },
         contact: {
-            subtitle: '04. What\'s Next?',
+            subtitle: '05. What\'s Next?',
             title: 'Get In Touch',
             text: 'I\'m always interested in connecting with other professionals and exploring new tech collaborations. Whether you have a proposal or just want to say hi, I\'ll be happy to chat!',
             cta: 'Contact Me',

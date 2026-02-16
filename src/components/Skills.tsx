@@ -8,10 +8,20 @@ const Skills = () => {
     const skills = [
         { name: 'React JS', category: 'Frontend' },
         { name: 'TypeScript', category: 'Frontend' },
+        { name: 'Redux Toolkit', category: 'State Management' },
+        { name: 'Tailwind CSS', category: 'CSS Framework' },
+        { name: 'Framer Motion', category: 'Animation' },
+        { name: 'Node.js', category: 'Backend' },
+        { name: 'Express', category: 'Backend' },
+        { name: 'Firebase', category: 'BaaS' },
+        { name: 'Supabase', category: 'BaaS' },
+        { name: 'SQL Server', category: 'Database' },
+        { name: 'SAP Business One', category: 'Enterprise' },
+        { name: 'Git & GitHub', category: 'Version Control' },
+        { name: 'Vite', category: 'Build Tool' },
+        { name: 'Vitest', category: 'Testing' },
         { name: 'Flutter', category: 'Mobile' },
         { name: 'C#', category: 'Backend' },
-        { name: 'SQL Server', category: 'Base de Datos' }, // 'Database' in English
-        { name: 'SAP Business One', category: 'Enterprise' },
     ];
 
     return (

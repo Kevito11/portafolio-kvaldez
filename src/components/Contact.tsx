@@ -77,8 +77,8 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <span className="block text-xs text-slate-lighter mb-1 font-mono">{t.contact.modal.phone}</span>
-                                        <a href="tel:+18094906319" className="text-slate-100 font-semibold hover:text-gold-500 transition-colors">
-                                            +1 (809) 490-6319
+                                        <a href="https://wa.me/18094906319" target="_blank" rel="noopener noreferrer" className="text-slate-100 font-semibold hover:text-gold-500 transition-colors">
+                                            +1 (809) 490-6319 (WhatsApp)
                                         </a>
                                     </div>
                                 </div>
