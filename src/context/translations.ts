@@ -86,6 +86,7 @@ export const translations = {
                 title: 'Información de Contacto',
                 email: 'Correo Electrónico',
                 phone: 'Teléfono',
+                linkedin: 'LinkedIn',
                 close: 'Cerrar'
             }
         }
@@ -177,6 +178,7 @@ export const translations = {
                 title: 'Contact Information',
                 email: 'Email Address',
                 phone: 'Phone',
+                linkedin: 'LinkedIn',
                 close: 'Close'
             }
         }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Section from './Section';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Phone } from 'lucide-react';
+import { X, Mail, Phone, Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
@@ -79,6 +79,18 @@ const Contact = () => {
                                         <span className="block text-xs text-slate-lighter mb-1 font-mono">{t.contact.modal.phone}</span>
                                         <a href="https://wa.me/18094906319" target="_blank" rel="noopener noreferrer" className="text-slate-100 font-semibold hover:text-gold-500 transition-colors">
                                             +1 (809) 490-6319 (WhatsApp)
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-4 p-4 bg-navy-900 rounded border border-navy-700 hover:border-gold-500 transition-colors group">
+                                    <div className="p-3 bg-navy-800 rounded-full text-gold-500 group-hover:scale-110 transition-transform">
+                                        <Linkedin size={24} />
+                                    </div>
+                                    <div>
+                                        <span className="block text-xs text-slate-lighter mb-1 font-mono">{t.contact.modal.linkedin}</span>
+                                        <a href="https://www.linkedin.com/in/kevin-l-valdez-garc%C3%ADa-4225a8165/" target="_blank" rel="noopener noreferrer" className="text-slate-100 font-semibold hover:text-gold-500 transition-colors">
+                                            Kevin Valdez
                                         </a>
                                     </div>
                                 </div>
