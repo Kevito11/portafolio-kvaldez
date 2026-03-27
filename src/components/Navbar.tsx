@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Globe, ArrowUp } from 'lucide-react';
+import { Menu, X, Globe, ArrowUp, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -78,10 +78,22 @@ const Navbar = () => {
                             </motion.a>
                         ))}
 
+                        <motion.a
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                            className="px-4 py-2 border border-gold-500 text-gold-500 rounded hover:bg-gold-500/10 transition-colors font-mono text-sm"
+                        >
+                            {t.nav.resume}
+                        </motion.a>
+
                         <motion.button
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.5 }}
+                            transition={{ duration: 0.5, delay: 0.7 }}
                             onClick={toggleLanguage}
                             className="text-slate-lighter hover:text-gold-500 transition-colors flex items-center gap-1 font-mono text-sm"
                         >
@@ -92,6 +104,16 @@ const Navbar = () => {
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center gap-4">
+                        <a
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-lighter hover:text-gold-500 transition-colors flex items-center gap-1 font-mono text-sm"
+                            aria-label={t.nav.resume}
+                        >
+                            <FileText size={18} />
+                        </a>
+
                         <button
                             onClick={toggleLanguage}
                             className="text-slate-lighter hover:text-gold-500 transition-colors flex items-center gap-1 font-mono text-sm"

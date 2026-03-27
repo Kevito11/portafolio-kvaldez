@@ -64,15 +64,15 @@ export const translations = {
                 },
                 {
                     title: 'BodaDigital - Invitación Interactiva',
-                    description: 'Una plataforma digital interactiva para crear y gestionar invitaciones de boda personalizadas con un diseño elegante y moderno. Facilita la confirmación de asistencia y la ubicación del evento.'
+                    description: 'Una plataforma digital interactiva para crear y gestionar invitaciones de boda personalizadas con un diseño elegante y moderno. Facilita la confirmación de asistencia y la ubicación del evento. (Proyecto personal en desarrollo)'
                 },
                 {
                     title: 'Gestor de Finanzas Personales',
-                    description: 'Aplicación intuitiva para el control inteligente de ingresos y gastos. Permite a los usuarios visualizar su flujo de dinero mediante gráficos y categorías personalizables.'
+                    description: 'Aplicación intuitiva para el control inteligente de ingresos y gastos. Permite a los usuarios visualizar su flujo de dinero mediante gráficos y categorías personalizables. Proyecto desarrollado como parte de un curso.'
                 },
                 {
                     title: 'Buscador de Gifs',
-                    description: 'Aplicación dinámica que permite buscar y descubrir GIFs animados en tiempo real conectándose a la API de Giphy. Incluye carga perezosa (lazy loading) para mejor rendimiento.'
+                    description: 'Aplicación dinámica que permite buscar y descubrir GIFs animados en tiempo real conectándose a la API de Giphy. Incluye carga perezosa (lazy loading) para mejor rendimiento. Proyecto desarrollado como requisito de un curso.'
                 }
             ]
         },
@@ -155,15 +155,15 @@ export const translations = {
                 },
                 {
                     title: 'BodaDigital - Interactive Invitation',
-                    description: 'An interactive digital platform to create and manage personalized wedding invitations with an elegant and modern design. Facilitates RSVP and event location.'
+                    description: 'An interactive digital platform to create and manage personalized wedding invitations with an elegant and modern design. Facilitates RSVP and event location. (Personal project in development)'
                 },
                 {
                     title: 'Personal Finance Manager',
-                    description: 'Intuitive application for intelligent control of income and expenses. Allows users to visualize their money flow through charts and customizable categories.'
+                    description: 'Intuitive application for intelligent control of income and expenses. Allows users to visualize their money flow through charts and customizable categories. Project developed as part of a course.'
                 },
                 {
                     title: 'Gif Searcher',
-                    description: 'Dynamic application that allows searching and discovering animated GIFs in real-time by connecting to the Giphy API. Includes lazy loading for better performance.'
+                    description: 'Dynamic application that allows searching and discovering animated GIFs in real-time by connecting to the Giphy API. Includes lazy loading for better performance. Project developed as a course requirement.'
                 }
             ]
         },
