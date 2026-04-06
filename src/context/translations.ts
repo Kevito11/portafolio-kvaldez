@@ -64,7 +64,11 @@ export const translations = {
                 },
                 {
                     title: 'BodaDigital - Invitación Interactiva',
-                    description: 'Una plataforma digital interactiva para crear y gestionar invitaciones de boda personalizadas con un diseño elegante y moderno. Facilita la confirmación de asistencia y la ubicación del evento. (Proyecto personal en desarrollo)'
+                    description: 'Una plataforma digital interactiva para crear y gestionar invitaciones de boda personalizadas con un diseño elegante y moderno. Facilita la confirmación de asistencia y la ubicación del evento.'
+                },
+                {
+                    title: 'FacturaPro - ERP System',
+                    description: 'Sistema de Gestión Empresarial (ERP) de nivel "Enterprise" para facturación, inventario y CRM. Diseño premium con Glassmorphism, gráficas interactivas y una experiencia de usuario inmersiva. (Proyecto actualmente en desarrollo)'
                 },
                 {
                     title: 'Gestor de Finanzas Personales',
@@ -156,7 +160,11 @@ export const translations = {
                 },
                 {
                     title: 'BodaDigital - Interactive Invitation',
-                    description: 'An interactive digital platform to create and manage personalized wedding invitations with an elegant and modern design. Facilitates RSVP and event location. (Personal project in development)'
+                    description: 'An interactive digital platform to create and manage personalized wedding invitations with an elegant and modern design. Facilitates RSVP and event location.'
+                },
+                {
+                    title: 'FacturaPro - ERP System',
+                    description: 'Enterprise-level ERP system for billing, inventory, and CRM. Premium design featuring Glassmorphism, interactive charts, and an immersive user experience. (Currently under development)'
                 },
                 {
                     title: 'Personal Finance Manager',
@@ -164,7 +172,7 @@ export const translations = {
                 },
                 {
                     title: 'Gif Searcher',
-                    description: 'Dynamic application that allows searching and discovering animated GIFs in real-time by connecting to the Giphy API. Includes lazy loading for better performance. Project developed as a course requirement.'
+                    description: 'Dynamic application that allows searching and discovering animated GIFs in real-time by connecting to the Giphy API. Includes lazy loading for better performance. Project developed as a requirement of a course.'
                 }
             ]
         },
