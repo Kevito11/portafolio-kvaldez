@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Section from './Section';
 import { Github, ExternalLink, ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,7 +12,44 @@ const ImageModal = ({ isOpen, images, currentIndex, onNext, onPrev, onClose }: {
     onPrev: () => void,
     onClose: () => void 
 }) => {
-    const [isZoomed, setIsZoomed] = useState(false);
+    const [zoomScale, setZoomScale] = useState(1);
+    const [naturalSize, setNaturalSize] = useState({ width: 0, height: 0 });
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    // Keyboard navigation and Scroll Zoom
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (!isOpen) return;
+            
+            if (e.key === 'ArrowRight') {
+                onNext();
+            } else if (e.key === 'ArrowLeft') {
+                onPrev();
+            } else if (e.key === 'Escape') {
+                onClose();
+            }
+        };
+
+        const handleWheel = (e: WheelEvent) => {
+            if (!isOpen) return;
+            // Prevent zooming the whole page
+            if (e.ctrlKey) e.preventDefault();
+            
+            setZoomScale(prev => {
+                const zoomSpeed = 0.1;
+                const delta = e.deltaY > 0 ? -zoomSpeed : zoomSpeed;
+                const newScale = prev + delta;
+                return Math.min(Math.max(newScale, 1), 4);
+            });
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('wheel', handleWheel);
+        };
+    }, [isOpen, onNext, onPrev, onClose]);
 
     // Prevent scrolling when modal is open
     useEffect(() => {
@@ -20,14 +57,77 @@ const ImageModal = ({ isOpen, images, currentIndex, onNext, onPrev, onClose }: {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
-            setIsZoomed(false);
+            setZoomScale(1);
         }
         return () => { document.body.style.overflow = 'unset'; };
     }, [isOpen]);
 
+    // Reset zoom and position when image changes
+    useEffect(() => {
+        setZoomScale(1);
+        setNaturalSize({ width: 0, height: 0 });
+    }, [currentIndex]);
+
+    const [constraints, setConstraints] = useState({ left: 0, right: 0, top: 0, bottom: 0 });
+
+    // Calculate dynamic constraints based on zoom level and image aspect ratio
+    useEffect(() => {
+        if (containerRef.current && naturalSize.width > 0) {
+            const { width: cW, height: cH } = containerRef.current.getBoundingClientRect();
+            
+            const imageRatio = naturalSize.width / naturalSize.height;
+            const containerRatio = cW / cH;
+            
+            let vW1x, vH1x;
+            if (imageRatio > containerRatio) {
+                vW1x = cW;
+                vH1x = cW / imageRatio;
+            } else {
+                vH1x = cH;
+                vW1x = cH * imageRatio;
+            }
+            
+            const vW = vW1x * zoomScale;
+            const vH = vH1x * zoomScale;
+            
+            const xOffset = Math.max(0, (vW / 1) - cW) / 2;
+            const yOffset = Math.max(0, (vH / 1) - cH) / 2;
+            
+            const margin = 100; // Increased margin for better vertical exploration
+            
+            setConstraints({
+                left: -xOffset - margin,
+                right: xOffset + margin,
+                top: -yOffset - margin,
+                bottom: yOffset + margin
+            });
+        }
+    }, [zoomScale, isOpen, currentIndex, naturalSize]);
+
+    const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+        const { naturalWidth, naturalHeight } = e.currentTarget;
+        setNaturalSize({ width: naturalWidth, height: naturalHeight });
+    };
+
     if (!isOpen || !images) return null;
 
     const currentImage = images[currentIndex];
+    const isZoomed = zoomScale > 1;
+
+    const handleZoomIn = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setZoomScale(prev => Math.min(prev + 0.5, 3));
+    };
+
+    const handleZoomOut = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setZoomScale(prev => Math.max(prev - 0.5, 1));
+    };
+
+    const toggleZoom = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setZoomScale(prev => prev > 1 ? 1 : 2);
+    };
 
     return (
         <AnimatePresence>
@@ -38,24 +138,46 @@ const ImageModal = ({ isOpen, images, currentIndex, onNext, onPrev, onClose }: {
                 className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-navy-950/95 backdrop-blur-md"
                 onClick={onClose}
             >
-                <div className="absolute top-6 right-6 flex gap-4 z-[110]">
-                    <motion.button
-                        onClick={(e) => { e.stopPropagation(); setIsZoomed(!isZoomed); }}
-                        className={`p-2 rounded-full transition-colors ${isZoomed ? 'bg-gold-500 text-navy-950' : 'text-slate-100 hover:text-gold-500'}`}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        title="Zoom"
-                    >
-                        <Maximize2 size={24} />
-                    </motion.button>
+                {/* Top Controls */}
+                <div className="absolute top-6 right-6 z-[110]">
                     <motion.button
                         onClick={onClose}
-                        className="p-2 text-slate-100 hover:text-gold-500 transition-colors"
+                        className="p-2 text-slate-100 hover:text-gold-500 transition-colors bg-navy-900/50 rounded-full border border-navy-700"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                        <X size={32} />
+                        <X size={28} />
                     </motion.button>
+                </div>
+
+                {/* Bottom Controls (Zoom) */}
+                <div className="absolute bottom-6 right-6 flex items-center gap-2 z-[110] bg-navy-900/80 p-2 rounded-full border border-gold-500/30 backdrop-blur-sm shadow-xl">
+                    <button
+                        onClick={handleZoomOut}
+                        disabled={zoomScale <= 1}
+                        className={`p-2 rounded-full transition-all ${zoomScale <= 1 ? 'text-slate-600 cursor-not-allowed' : 'text-slate-100 hover:text-gold-500 hover:bg-navy-800'}`}
+                    >
+                        <Maximize2 size={18} className="rotate-180" />
+                    </button>
+                    
+                    <div className="h-4 w-[1px] bg-navy-700 mx-1"></div>
+                    
+                    <button
+                        onClick={toggleZoom}
+                        className={`px-3 py-1 font-mono text-xs rounded transition-all ${isZoomed ? 'text-gold-500 bg-gold-500/10' : 'text-slate-400 hover:text-slate-100'}`}
+                    >
+                        {zoomScale.toFixed(1)}x
+                    </button>
+
+                    <div className="h-4 w-[1px] bg-navy-700 mx-1"></div>
+
+                    <button
+                        onClick={handleZoomIn}
+                        disabled={zoomScale >= 3}
+                        className={`p-2 rounded-full transition-all ${zoomScale >= 3 ? 'text-slate-600 cursor-not-allowed' : 'text-slate-100 hover:text-gold-500 hover:bg-navy-800'}`}
+                    >
+                        <Maximize2 size={18} />
+                    </button>
                 </div>
 
                 {/* Navigation Arrows inside Modal */}
@@ -80,34 +202,44 @@ const ImageModal = ({ isOpen, images, currentIndex, onNext, onPrev, onClose }: {
                     </>
                 )}
                 
-                <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ 
-                        scale: isZoomed ? 1.5 : 1, 
-                        opacity: 1,
-                        cursor: isZoomed ? 'zoom-out' : 'zoom-in'
-                    }}
-                    exit={{ scale: 0.8, opacity: 0 }}
-                    transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                    className={`relative max-w-7xl max-h-[90vh] flex items-center justify-center rounded-lg ${isZoomed ? 'overflow-auto' : 'overflow-hidden'} shadow-2xl border border-navy-700 bg-navy-900`}
-                    onClick={(e) => { e.stopPropagation(); setIsZoomed(!isZoomed); }}
-                >
-                    <img
-                        src={`/${currentImage}`}
-                        alt="Project screenshot full view"
-                        className={`w-full h-full object-contain pointer-events-none select-none shadow-2xl transition-transform duration-300`}
-                    />
-                </motion.div>
+                <div ref={containerRef} className="relative w-full h-full flex items-center justify-center overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                    <motion.div
+                        key={currentIndex}
+                        drag={isZoomed}
+                        dragConstraints={constraints}
+                        dragElastic={0.1}
+                        dragMomentum={true}
+                        initial={{ opacity: 0, x: 0, y: 0 }}
+                        animate={{ 
+                            scale: zoomScale, 
+                            opacity: 1,
+                            cursor: isZoomed ? 'grab' : 'default',
+                        }}
+                        whileTap={{ cursor: isZoomed ? 'grabbing' : 'default' }}
+                        exit={{ opacity: 0 }}
+                        transition={{ 
+                            scale: { type: "spring", damping: 25, stiffness: 300 },
+                            opacity: { duration: 0.3 }
+                        }}
+                        className={`relative max-w-7xl max-h-[90vh] flex items-center justify-center rounded-lg shadow-2xl border border-navy-700 bg-navy-900`}
+                    >
+                        <img
+                            src={`/${currentImage}`}
+                            onLoad={handleImageLoad}
+                            alt="Project screenshot full view"
+                            className={`w-full h-full object-contain pointer-events-none select-none shadow-2xl transition-transform duration-300`}
+                        />
+                    </motion.div>
+                </div>
 
                 {/* Image Counter */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 font-mono text-sm bg-navy-900/50 px-4 py-2 rounded-full border border-navy-700">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 font-mono text-sm bg-navy-900/50 px-4 py-2 rounded-full border border-navy-700 backdrop-blur-sm">
                     {currentIndex + 1} / {images.length}
                 </div>
             </motion.div>
         </AnimatePresence>
     );
 };
-
 const ProjectCarousel = ({ images, title, onImageClick }: { images: string[], title: string, onImageClick: (idx: number) => void }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
