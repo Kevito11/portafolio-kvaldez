@@ -381,7 +381,7 @@ const Projects = () => {
         {
             links: {
                 github: 'https://github.com/Kevito11/FacturaPro-kvaldez',
-                demo: '#'
+                demo: 'https://facturapro-kvaldez.netlify.app/'
             },
             images: [
                 'projects/facturapro/2.png',
