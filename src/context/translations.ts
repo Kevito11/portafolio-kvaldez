@@ -59,6 +59,10 @@ export const translations = {
             viewArchive: 'Ver Archivo Completo',
             list: [
                 {
+                    title: 'OneTwentyOne - ICC',
+                    description: 'Sitio web oficial y plataforma de registro para el ministerio de jóvenes de la Iglesia Convertidos a Cristo (ICC). Cuenta con un diseño premium minimalista, cuenta regresiva, cronograma interactivo de actividades y generación de boletos digitales con códigos QR para el evento.'
+                },
+                {
                     title: 'Barber Shop - Landing Page',
                     description: 'Una página web moderna para una barbería, diseñada para mostrar servicios, precios y horarios. Totalmente responsiva y optimizada para una experiencia de usuario fluida.'
                 },
@@ -154,6 +158,10 @@ export const translations = {
             featured: 'Featured Project',
             viewArchive: 'View Full Archive',
             list: [
+                {
+                    title: 'OneTwentyOne - ICC',
+                    description: 'Official website and registration platform for the youth ministry of the Iglesia Convertidos a Cristo (ICC). Features a premium minimalist design, live countdown, interactive activity schedule, and digital ticket generation with QR codes for the event.'
+                },
                 {
                     title: 'Barber Shop - Landing Page',
                     description: 'A modern landing page for a barbershop, designed to showcase services, pricing, and hours. Fully responsive and optimized for a smooth user experience.'

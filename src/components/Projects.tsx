@@ -359,6 +359,19 @@ const Projects = () => {
     const projectsData = [
         {
             links: {
+                github: 'https://github.com/Kevito11/OneTwentyOne-kvaldez',
+                demo: 'https://onetwentyone-kvaldez.netlify.app/'
+            },
+            images: [
+                'projects/onetwentyone/1.png',
+                'projects/onetwentyone/2.png',
+                'projects/onetwentyone/3.png',
+                'projects/onetwentyone/4.png'
+            ],
+            tech: ['React', 'Tailwind CSS', 'Framer Motion', 'React Router']
+        },
+        {
+            links: {
                 github: 'https://github.com/Kevito11/BarberShop-2-kvaldez',
                 demo: 'https://barbershop-2-kvaldez.netlify.app/'
             },
