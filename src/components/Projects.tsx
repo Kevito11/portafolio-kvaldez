@@ -360,7 +360,7 @@ const Projects = () => {
         {
             links: {
                 github: 'https://github.com/Kevito11/OneTwentyOne-kvaldez',
-                demo: 'https://onetwentyone-kvaldez.netlify.app/'
+                demo: 'https://ministeriodejovenesicc.netlify.app/registro'
             },
             images: [
                 'projects/onetwentyone/1.png',

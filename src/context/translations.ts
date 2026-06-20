@@ -59,7 +59,7 @@ export const translations = {
             viewArchive: 'Ver Archivo Completo',
             list: [
                 {
-                    title: 'OneTwentyOne - ICC',
+                    title: 'Ministerio de Jóvenes - ICC',
                     description: 'Sitio web oficial y plataforma de registro para el ministerio de jóvenes de la Iglesia Convertidos a Cristo (ICC). Cuenta con un diseño premium minimalista, cuenta regresiva, cronograma interactivo de actividades y generación de boletos digitales con códigos QR para el evento.'
                 },
                 {
@@ -159,7 +159,7 @@ export const translations = {
             viewArchive: 'View Full Archive',
             list: [
                 {
-                    title: 'OneTwentyOne - ICC',
+                    title: 'Youth Ministry - ICC',
                     description: 'Official website and registration platform for the youth ministry of the Iglesia Convertidos a Cristo (ICC). Features a premium minimalist design, live countdown, interactive activity schedule, and digital ticket generation with QR codes for the event.'
                 },
                 {
