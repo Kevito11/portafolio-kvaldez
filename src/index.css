@@ -9,25 +9,19 @@
   --bg-primary: #09090b;
   --bg-surface: #111114;
   --bg-elevated: #18181b;
-
   --border-subtle: #27272a;
   --border-strong: #3f3f46;
-
   --text-heading: #fafafa;
   --text-primary: #e4e4e7;
   --text-secondary: #a1a1aa;
-
   --accent-primary: #6366f1;
   --accent-hover: #818cf8;
   --accent-soft: rgba(99, 102, 241, 0.12);
   --accent-on: #ffffff;
-
   --grid-line: rgba(255, 255, 255, 0.055);
-
   --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: dark;
 }
 
@@ -36,54 +30,42 @@
   --bg-primary: #fafafa;
   --bg-surface: #ffffff;
   --bg-elevated: #f4f4f5;
-
   --border-subtle: #e4e4e7;
   --border-strong: #d4d4d8;
-
   --text-heading: #09090b;
   --text-primary: #18181b;
   --text-secondary: #52525b;
-
   --accent-primary: #4f46e5;
   --accent-hover: #4338ca;
   --accent-soft: rgba(79, 70, 229, 0.09);
   --accent-on: #ffffff;
-
   --grid-line: rgba(9, 9, 11, 0.055);
-
   --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: light;
 }
 
 /* =========================================================
-   2. TERMINAL (AI & DevOps Engineer — Supabase / Raycast)
+   2. TERMINAL (Split-Screen — AI & DevOps)
    ========================================================= */
 [data-brand="terminal"][data-theme="dark"] {
   --bg-primary: #050908;
   --bg-surface: #0c1311;
   --bg-elevated: #121c19;
-
   --border-subtle: #1c2b26;
   --border-strong: #2c433b;
-
   --text-heading: #ecfdf5;
   --text-primary: #d1fae5;
   --text-secondary: #8ea99f;
-
   --accent-primary: #10b981;
   --accent-hover: #34d399;
   --accent-soft: rgba(16, 185, 129, 0.13);
   --accent-on: #042f2e;
-
   --grid-line: rgba(16, 185, 129, 0.07);
-
   --font-brand-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: dark;
 }
 
@@ -91,54 +73,42 @@
   --bg-primary: #f4f9f7;
   --bg-surface: #ffffff;
   --bg-elevated: #e8f3ef;
-
   --border-subtle: #cfe3dc;
   --border-strong: #a7ccc0;
-
   --text-heading: #06281e;
   --text-primary: #11382c;
   --text-secondary: #3f6257;
-
   --accent-primary: #059669;
   --accent-hover: #047857;
   --accent-soft: rgba(5, 150, 105, 0.1);
   --accent-on: #ffffff;
-
   --grid-line: rgba(5, 150, 105, 0.08);
-
   --font-brand-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: light;
 }
 
 /* =========================================================
-   3. EXECUTIVE (Senior Tech Lead & Consultant — Warm Slate)
+   3. EXECUTIVE (Executive Tabs Dossier)
    ========================================================= */
 [data-brand="executive"][data-theme="dark"] {
   --bg-primary: #0b1120;
   --bg-surface: #111827;
   --bg-elevated: #1e293b;
-
   --border-subtle: #1f2937;
   --border-strong: #334155;
-
   --text-heading: #f8fafc;
   --text-primary: #e2e8f0;
   --text-secondary: #94a3b8;
-
   --accent-primary: #f59e0b;
   --accent-hover: #fbbf24;
   --accent-soft: rgba(245, 158, 11, 0.13);
   --accent-on: #0b1120;
-
   --grid-line: rgba(248, 250, 252, 0.05);
-
   --font-brand-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: dark;
 }
 
@@ -146,109 +116,42 @@
   --bg-primary: #fafaf9;
   --bg-surface: #ffffff;
   --bg-elevated: #f5f5f4;
-
   --border-subtle: #e7e5e4;
   --border-strong: #d6d3d1;
-
   --text-heading: #0f172a;
   --text-primary: #1e293b;
   --text-secondary: #57534e;
-
   --accent-primary: #d97706;
   --accent-hover: #b45309;
   --accent-soft: rgba(217, 119, 6, 0.1);
   --accent-on: #ffffff;
-
   --grid-line: rgba(15, 23, 42, 0.05);
-
   --font-brand-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: light;
 }
 
 /* =========================================================
-   4. SWISS (Creative Swiss Studio — High Contrast & Bold)
-   ========================================================= */
-[data-brand="swiss"][data-theme="dark"] {
-  --bg-primary: #0c0c0c;
-  --bg-surface: #161616;
-  --bg-elevated: #202020;
-
-  --border-subtle: #2e2e2e;
-  --border-strong: #4a4a4a;
-
-  --text-heading: #ffffff;
-  --text-primary: #ececec;
-  --text-secondary: #a3a3a3;
-
-  --accent-primary: #f97316;
-  --accent-hover: #fb923c;
-  --accent-soft: rgba(249, 115, 22, 0.14);
-  --accent-on: #0c0c0c;
-
-  --grid-line: rgba(255, 255, 255, 0.065);
-
-  --font-brand-heading: "Syne", "Space Grotesk", -apple-system, sans-serif;
-  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  color-scheme: dark;
-}
-
-[data-brand="swiss"][data-theme="light"] {
-  --bg-primary: #f5f4ef;
-  --bg-surface: #ffffff;
-  --bg-elevated: #eae8e0;
-
-  --border-subtle: #d6d3c8;
-  --border-strong: #a8a497;
-
-  --text-heading: #0c0c0c;
-  --text-primary: #1c1c1c;
-  --text-secondary: #52504a;
-
-  --accent-primary: #ea580c;
-  --accent-hover: #c2410c;
-  --accent-soft: rgba(234, 88, 12, 0.1);
-  --accent-on: #ffffff;
-
-  --grid-line: rgba(12, 12, 12, 0.065);
-
-  --font-brand-heading: "Syne", "Space Grotesk", -apple-system, sans-serif;
-  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  color-scheme: light;
-}
-
-/* =========================================================
-   5. OCEAN (Fresh SaaS Product — Proactive & Dynamic)
+   4. OCEAN (Bento Dashboard + macOS Dock)
    ========================================================= */
 [data-brand="ocean"][data-theme="dark"] {
   --bg-primary: #071117;
   --bg-surface: #0d1b24;
   --bg-elevated: #132632;
-
   --border-subtle: #19303f;
   --border-strong: #274a60;
-
   --text-heading: #f0f9ff;
   --text-primary: #dbeafe;
   --text-secondary: #8ba6b8;
-
   --accent-primary: #06b6d4;
   --accent-hover: #22d3ee;
   --accent-soft: rgba(6, 182, 212, 0.14);
   --accent-on: #042029;
-
   --grid-line: rgba(6, 182, 212, 0.075);
-
   --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: dark;
 }
 
@@ -256,80 +159,320 @@
   --bg-primary: #f0f9ff;
   --bg-surface: #ffffff;
   --bg-elevated: #e0f2fe;
-
   --border-subtle: #bae6fd;
   --border-strong: #7dd3fc;
-
   --text-heading: #082f49;
   --text-primary: #0c4a6e;
   --text-secondary: #3b6982;
-
   --accent-primary: #0891b2;
   --accent-hover: #0e7490;
   --accent-soft: rgba(8, 145, 178, 0.1);
   --accent-on: #ffffff;
-
   --grid-line: rgba(8, 145, 178, 0.08);
-
   --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: light;
 }
 
 /* =========================================================
-   6. MONOCHROME (Zen Minimalism — Pure Architectural Gallery)
+   5. IDE (Engineering Workspace — VS Code / Cursor)
    ========================================================= */
-[data-brand="monochrome"][data-theme="dark"] {
-  --bg-primary: #000000;
-  --bg-surface: #0d0d0d;
-  --bg-elevated: #171717;
-
-  --border-subtle: #262626;
-  --border-strong: #404040;
-
-  --text-heading: #ffffff;
-  --text-primary: #e5e5e5;
-  --text-secondary: #a3a3a3;
-
-  --accent-primary: #ffffff;
-  --accent-hover: #d4d4d4;
-  --accent-soft: rgba(255, 255, 255, 0.1);
-  --accent-on: #000000;
-
-  --grid-line: rgba(255, 255, 255, 0.06);
-
-  --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+[data-brand="ide"][data-theme="dark"] {
+  --bg-primary: #0d1117;
+  --bg-surface: #161b22;
+  --bg-elevated: #21262d;
+  --border-subtle: #30363d;
+  --border-strong: #484f58;
+  --text-heading: #f0f6fc;
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --accent-primary: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --accent-soft: rgba(56, 189, 248, 0.13);
+  --accent-on: #082f49;
+  --grid-line: rgba(56, 189, 248, 0.06);
+  --font-brand-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   color-scheme: dark;
 }
 
-[data-brand="monochrome"][data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-surface: #f4f4f5;
-  --bg-elevated: #e4e4e7;
-
-  --border-subtle: #d4d4d8;
-  --border-strong: #a1a1aa;
-
-  --text-heading: #09090b;
-  --text-primary: #18181b;
-  --text-secondary: #52525b;
-
-  --accent-primary: #09090b;
-  --accent-hover: #27272a;
-  --accent-soft: rgba(9, 9, 11, 0.08);
+[data-brand="ide"][data-theme="light"] {
+  --bg-primary: #f6f8fa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #eaeef2;
+  --border-subtle: #d0d7de;
+  --border-strong: #afb8c1;
+  --text-heading: #1f2328;
+  --text-primary: #24292f;
+  --text-secondary: #57606a;
+  --accent-primary: #0284c7;
+  --accent-hover: #0369a1;
+  --accent-soft: rgba(2, 132, 199, 0.1);
   --accent-on: #ffffff;
+  --grid-line: rgba(2, 132, 199, 0.06);
+  --font-brand-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light;
+}
 
-  --grid-line: rgba(9, 9, 11, 0.06);
-
+/* =========================================================
+   6. SHOWCASE (Master-Detail Obsidian + Electric Violet)
+   ========================================================= */
+[data-brand="showcase"][data-theme="dark"] {
+  --bg-primary: #0a0a0f;
+  --bg-surface: #12121a;
+  --bg-elevated: #1b1b27;
+  --border-subtle: #262638;
+  --border-strong: #3c3c57;
+  --text-heading: #fafaff;
+  --text-primary: #e4e4f0;
+  --text-secondary: #9c9cb3;
+  --accent-primary: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --accent-soft: rgba(139, 92, 246, 0.14);
+  --accent-on: #ffffff;
+  --grid-line: rgba(139, 92, 246, 0.07);
   --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: dark;
+}
 
+[data-brand="showcase"][data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1f5f9;
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text-heading: #0f172a;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --accent-primary: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-soft: rgba(124, 58, 237, 0.1);
+  --accent-on: #ffffff;
+  --grid-line: rgba(124, 58, 237, 0.06);
+  --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light;
+}
+
+/* =========================================================
+   7. LINEAR (Command Palette ⌘K + High-Density Slide-Over)
+   ========================================================= */
+[data-brand="linear"][data-theme="dark"] {
+  --bg-primary: #0b0c0e;
+  --bg-surface: #121417;
+  --bg-elevated: #1a1d22;
+  --border-subtle: #252931;
+  --border-strong: #39404d;
+  --text-heading: #f7f8f8;
+  --text-primary: #d0d6e0;
+  --text-secondary: #8a8f98;
+  --accent-primary: #5e6ad2;
+  --accent-hover: #7c86e0;
+  --accent-soft: rgba(94, 106, 210, 0.15);
+  --accent-on: #ffffff;
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --font-brand-heading: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: dark;
+}
+
+[data-brand="linear"][data-theme="light"] {
+  --bg-primary: #fbfbfc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f3f4f6;
+  --border-subtle: #e5e7eb;
+  --border-strong: #d1d5db;
+  --text-heading: #111827;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --accent-primary: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: rgba(79, 70, 229, 0.1);
+  --accent-on: #ffffff;
+  --grid-line: rgba(17, 24, 39, 0.05);
+  --font-brand-heading: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light;
+}
+
+/* =========================================================
+   8. READCV (Senior Engineer Digital Dossier)
+   ========================================================= */
+[data-brand="readcv"][data-theme="dark"] {
+  --bg-primary: #111111;
+  --bg-surface: #181818;
+  --bg-elevated: #222222;
+  --border-subtle: #2b2b2b;
+  --border-strong: #404040;
+  --text-heading: #f5f5f5;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999999;
+  --accent-primary: #10b981;
+  --accent-hover: #34d399;
+  --accent-soft: rgba(16, 185, 129, 0.13);
+  --accent-on: #052e16;
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: dark;
+}
+
+[data-brand="readcv"][data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-surface: #fafafa;
+  --bg-elevated: #f4f4f5;
+  --border-subtle: #e4e4e7;
+  --border-strong: #d4d4d8;
+  --text-heading: #111111;
+  --text-primary: #27272a;
+  --text-secondary: #52525b;
+  --accent-primary: #059669;
+  --accent-hover: #047857;
+  --accent-soft: rgba(5, 150, 105, 0.1);
+  --accent-on: #ffffff;
+  --grid-line: rgba(17, 17, 17, 0.05);
+  --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light;
+}
+
+/* =========================================================
+   9. SIDEBAR (Modular Collapsible Portal)
+   ========================================================= */
+[data-brand="sidebar"][data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-elevated: #273549;
+  --border-subtle: #334155;
+  --border-strong: #475569;
+  --text-heading: #f8fafc;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent-primary: #14b8a6;
+  --accent-hover: #2dd4bf;
+  --accent-soft: rgba(20, 184, 166, 0.14);
+  --accent-on: #042f2e;
+  --grid-line: rgba(20, 184, 166, 0.06);
+  --font-brand-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: dark;
+}
+
+[data-brand="sidebar"][data-theme="light"] {
+  --bg-primary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-elevated: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  --border-strong: #94a3b8;
+  --text-heading: #0f172a;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --accent-primary: #0d9488;
+  --accent-hover: #0f766e;
+  --accent-soft: rgba(13, 148, 136, 0.1);
+  --accent-on: #ffffff;
+  --grid-line: rgba(13, 148, 136, 0.06);
+  --font-brand-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light;
+}
+
+/* =========================================================
+   10. STORY (Section Cards + Right Scroll Spy + Filters)
+   ========================================================= */
+[data-brand="story"][data-theme="dark"] {
+  --bg-primary: #121316;
+  --bg-surface: #191b20;
+  --bg-elevated: #22252c;
+  --border-subtle: #2b2f38;
+  --border-strong: #3e4452;
+  --text-heading: #f8fafc;
+  --text-primary: #e2e8f0;
+  --text-secondary: #9ca3af;
+  --accent-primary: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-soft: rgba(59, 130, 246, 0.14);
+  --accent-on: #ffffff;
+  --grid-line: rgba(59, 130, 246, 0.06);
+  --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: dark;
+}
+
+[data-brand="story"][data-theme="light"] {
+  --bg-primary: #f5f5f7;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ebedf0;
+  --border-subtle: #d8dce3;
+  --border-strong: #bfc6d2;
+  --text-heading: #111827;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: rgba(37, 99, 235, 0.1);
+  --accent-on: #ffffff;
+  --grid-line: rgba(37, 99, 235, 0.06);
+  --font-brand-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light;
+}
+
+/* =========================================================
+   11. STUDIO (Tech Consultant & Studio — Warm Obsidian)
+   ========================================================= */
+[data-brand="studio"][data-theme="dark"] {
+  --bg-primary: #0e0d0c;
+  --bg-surface: #171513;
+  --bg-elevated: #221f1c;
+  --border-subtle: #2d2925;
+  --border-strong: #443e38;
+  --text-heading: #fafaf9;
+  --text-primary: #e7e5e4;
+  --text-secondary: #a8a29e;
+  --accent-primary: #f59e0b;
+  --accent-hover: #fbbf24;
+  --accent-soft: rgba(245, 158, 11, 0.14);
+  --accent-on: #0e0d0c;
+  --grid-line: rgba(245, 158, 11, 0.06);
+  --font-brand-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: dark;
+}
+
+[data-brand="studio"][data-theme="light"] {
+  --bg-primary: #faf9f7;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f3f0ea;
+  --border-subtle: #e5e0d8;
+  --border-strong: #cfc8bc;
+  --text-heading: #1c1917;
+  --text-primary: #292524;
+  --text-secondary: #57534e;
+  --accent-primary: #d97706;
+  --accent-hover: #b45309;
+  --accent-soft: rgba(217, 119, 6, 0.1);
+  --accent-on: #ffffff;
+  --grid-line: rgba(217, 119, 6, 0.06);
+  --font-brand-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   color-scheme: light;
 }
 
@@ -394,17 +537,6 @@
 
 [data-brand="terminal"] .rounded-3xl {
   border-radius: 0.75rem;
-}
-
-[data-brand="swiss"] .rounded-2xl,
-[data-brand="swiss"] .rounded-3xl,
-[data-brand="swiss"] .rounded-xl {
-  border-radius: 0.25rem;
-}
-
-[data-brand="swiss"] h1,
-[data-brand="swiss"] h2 {
-  letter-spacing: -0.04em;
 }
 
 [data-brand="ocean"] .rounded-2xl:hover {

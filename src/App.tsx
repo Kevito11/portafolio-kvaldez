@@ -11,9 +11,14 @@ import Contact from './components/Contact';
 import BrandSwitcher from './components/BrandSwitcher';
 import SplitScreenLayout from './layouts/SplitScreenLayout';
 import ExecutiveTabsLayout from './layouts/ExecutiveTabsLayout';
-import SwissEditorialLayout from './layouts/SwissEditorialLayout';
 import BentoDockLayout from './layouts/BentoDockLayout';
-import GalleryMinimalLayout from './layouts/GalleryMinimalLayout';
+import IdeWorkspaceLayout from './layouts/IdeWorkspaceLayout';
+import MasterDetailLayout from './layouts/MasterDetailLayout';
+import CommandLinearLayout from './layouts/CommandLinearLayout';
+import ReadCvLayout from './layouts/ReadCvLayout';
+import ModularSidebarLayout from './layouts/ModularSidebarLayout';
+import StoryCardsLayout from './layouts/StoryCardsLayout';
+import TechStudioLayout from './layouts/TechStudioLayout';
 
 const PortfolioContent = () => {
   const { brand } = useTheme();
@@ -24,12 +29,22 @@ const PortfolioContent = () => {
         return <SplitScreenLayout />;
       case 'executive':
         return <ExecutiveTabsLayout />;
-      case 'swiss':
-        return <SwissEditorialLayout />;
       case 'ocean':
         return <BentoDockLayout />;
-      case 'monochrome':
-        return <GalleryMinimalLayout />;
+      case 'ide':
+        return <IdeWorkspaceLayout />;
+      case 'showcase':
+        return <MasterDetailLayout />;
+      case 'linear':
+        return <CommandLinearLayout />;
+      case 'readcv':
+        return <ReadCvLayout />;
+      case 'sidebar':
+        return <ModularSidebarLayout />;
+      case 'story':
+        return <StoryCardsLayout />;
+      case 'studio':
+        return <TechStudioLayout />;
       case 'architect':
       default:
         return (

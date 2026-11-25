@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { Palette, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme, type Brand } from '../context/ThemeContext';
+import { useTheme, type BrandTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 
 interface BrandSwatchConfig {
-    id: Brand;
+    id: BrandTheme;
     dark: [string, string, string];
     light: [string, string, string];
 }
@@ -27,19 +27,44 @@ const BRAND_CONFIGS: BrandSwatchConfig[] = [
         light: ['#fafaf9', '#ffffff', '#d97706'],
     },
     {
-        id: 'swiss',
-        dark: ['#0c0c0c', '#161616', '#f97316'],
-        light: ['#f5f4ef', '#ffffff', '#ea580c'],
-    },
-    {
         id: 'ocean',
         dark: ['#071117', '#0d1b24', '#06b6d4'],
         light: ['#f0f9ff', '#ffffff', '#0891b2'],
     },
     {
-        id: 'monochrome',
-        dark: ['#000000', '#0d0d0d', '#ffffff'],
-        light: ['#ffffff', '#f4f4f5', '#09090b'],
+        id: 'ide',
+        dark: ['#0d1117', '#161b22', '#38bdf8'],
+        light: ['#f6f8fa', '#ffffff', '#0284c7'],
+    },
+    {
+        id: 'showcase',
+        dark: ['#0a0a0f', '#12121a', '#8b5cf6'],
+        light: ['#f8fafc', '#ffffff', '#7c3aed'],
+    },
+    {
+        id: 'linear',
+        dark: ['#0b0c0e', '#121417', '#5e6ad2'],
+        light: ['#fbfbfc', '#ffffff', '#4f46e5'],
+    },
+    {
+        id: 'readcv',
+        dark: ['#111111', '#181818', '#10b981'],
+        light: ['#ffffff', '#fafafa', '#059669'],
+    },
+    {
+        id: 'sidebar',
+        dark: ['#0f172a', '#1e293b', '#14b8a6'],
+        light: ['#f1f5f9', '#ffffff', '#0d9488'],
+    },
+    {
+        id: 'story',
+        dark: ['#121316', '#191b20', '#3b82f6'],
+        light: ['#f5f5f7', '#ffffff', '#2563eb'],
+    },
+    {
+        id: 'studio',
+        dark: ['#0e0d0c', '#171513', '#f59e0b'],
+        light: ['#faf9f7', '#ffffff', '#d97706'],
     },
 ];
 
@@ -90,16 +115,16 @@ const BrandSwitcher = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: isTopRight ? -8 : 8, scale: 0.96 }}
                         transition={{ duration: 0.18 }}
-                        className={`absolute w-72 sm:w-80 p-2 rounded-2xl bg-bg-surface/95 backdrop-blur-md border border-border-subtle shadow-2xl ${
+                        className={`absolute w-[92vw] sm:w-[460px] max-h-[75vh] overflow-y-auto p-3 rounded-2xl bg-bg-surface/95 backdrop-blur-md border border-border-subtle shadow-2xl ${
                             isTopRight ? 'top-full right-0 mt-2.5' : 'bottom-full left-0 mb-2.5'
                         }`}
                     >
-                        <div className="px-3 py-2 text-[11px] font-mono uppercase tracking-wider text-text-secondary border-b border-border-subtle mb-1.5 flex items-center justify-between">
+                        <div className="px-2 pb-2 text-[11px] font-mono uppercase tracking-wider text-text-secondary border-b border-border-subtle mb-2.5 flex items-center justify-between">
                             <span>{t.brands.panelTitle}</span>
                             <span className="text-[10px] text-accent-primary">{mode.toUpperCase()}</span>
                         </div>
 
-                        <div className="flex flex-col gap-1 max-h-[65vh] overflow-y-auto">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {BRAND_CONFIGS.map((option) => {
                                 const isActive = brand === option.id;
                                 const copy = t.brands.options[option.id];
@@ -115,42 +140,42 @@ const BrandSwitcher = () => {
                                             setBrand(option.id);
                                             setIsOpen(false);
                                         }}
-                                        className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-left transition-colors cursor-pointer ${
+                                        className={`w-full flex flex-col justify-between gap-2 p-3 rounded-xl text-left transition-colors cursor-pointer ${
                                             isActive
-                                                ? 'bg-bg-elevated border border-accent-primary/60'
-                                                : 'border border-transparent hover:bg-bg-elevated/70'
+                                                ? 'bg-bg-elevated border border-accent-primary/70'
+                                                : 'border border-border-subtle/60 hover:bg-bg-elevated/70 hover:border-border-strong'
                                         }`}
                                     >
-                                        <div className="min-w-0 flex-1">
-                                            <div className="flex items-center gap-2">
-                                                <span className="text-sm font-heading font-semibold text-text-heading truncate">
-                                                    {copy.name}
-                                                </span>
-                                                {option.id === 'architect' && (
-                                                    <span className="px-1.5 py-0.5 rounded bg-accent-soft text-accent-primary font-mono text-[10px] font-medium shrink-0">
-                                                        {t.brands.currentBadge}
+                                        <div className="flex items-start justify-between gap-2">
+                                            <div className="min-w-0">
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className="text-xs sm:text-sm font-heading font-semibold text-text-heading truncate">
+                                                        {copy.name}
                                                     </span>
-                                                )}
+                                                    {option.id === 'architect' && (
+                                                        <span className="px-1.5 py-0.5 rounded bg-accent-soft text-accent-primary font-mono text-[9px] font-medium shrink-0">
+                                                            {t.brands.currentBadge}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <span className="block text-[11px] font-mono text-text-secondary truncate mt-0.5">
+                                                    {copy.tag}
+                                                </span>
                                             </div>
-                                            <span className="block text-[11px] font-mono text-text-secondary truncate mt-0.5">
-                                                {copy.tag}
-                                            </span>
-                                        </div>
-
-                                        <div className="flex items-center gap-2 shrink-0">
-                                            <span className="flex items-center gap-1" aria-hidden="true">
-                                                {swatches.map((color, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className="w-3 h-3 rounded-full border border-black/25 ring-1 ring-white/15"
-                                                        style={{ backgroundColor: color }}
-                                                    />
-                                                ))}
-                                            </span>
                                             {isActive && (
-                                                <Check size={14} className="text-accent-primary" />
+                                                <Check size={14} className="text-accent-primary shrink-0 mt-0.5" />
                                             )}
                                         </div>
+
+                                        <span className="flex items-center gap-1.5" aria-hidden="true">
+                                            {swatches.map((color, idx) => (
+                                                <span
+                                                    key={idx}
+                                                    className="w-3 h-3 rounded-full border border-black/25 ring-1 ring-white/15"
+                                                    style={{ backgroundColor: color }}
+                                                />
+                                            ))}
+                                        </span>
                                     </button>
                                 );
                             })}

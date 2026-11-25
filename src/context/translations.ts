@@ -19,33 +19,67 @@ export const translations = {
         brands: {
             buttonLabel: 'Estilos',
             buttonAria: 'Abrir laboratorio de estilos',
-            panelTitle: 'Laboratorio de Rebranding',
+            panelTitle: 'Laboratorio de Layouts (11)',
             currentBadge: 'Actual',
             options: {
                 architect: {
                     name: 'Architect',
-                    tag: 'Precisión • Linear / Vercel'
+                    tag: 'Cápsula flotante • Bento'
                 },
                 terminal: {
                     name: 'Terminal',
-                    tag: 'Analítico • IA / DevOps'
+                    tag: 'Pantalla dividida fija'
                 },
                 executive: {
                     name: 'Executive',
-                    tag: 'Sobrio • Líder Técnico'
-                },
-                swiss: {
-                    name: 'Swiss Studio',
-                    tag: 'Creativo • Editorial Audaz'
+                    tag: 'Dossier por pestañas'
                 },
                 ocean: {
-                    name: 'Ocean SaaS',
-                    tag: 'Proactivo • Producto Dinámico'
+                    name: 'Ocean Dock',
+                    tag: 'Bento + Dock macOS'
                 },
-                monochrome: {
-                    name: 'Monochrome',
-                    tag: 'Zen • Galería Arquitectónica'
+                ide: {
+                    name: 'IDE Workspace',
+                    tag: 'Editor VS Code / Cursor'
+                },
+                showcase: {
+                    name: 'Showcase',
+                    tag: 'Maestro-Detalle interactivo'
+                },
+                linear: {
+                    name: 'Linear ⌘K',
+                    tag: 'Command Palette + Slide-Over'
+                },
+                readcv: {
+                    name: 'Read.cv',
+                    tag: 'Dossier minimalista senior'
+                },
+                sidebar: {
+                    name: 'Sidebar Portal',
+                    tag: 'Barra lateral colapsable'
+                },
+                story: {
+                    name: 'Story Cards',
+                    tag: 'Scroll Spy + Filtros'
+                },
+                studio: {
+                    name: 'Tech Studio',
+                    tag: 'Consultor + Grid asimétrico'
                 }
+            }
+        },
+        layoutUi: {
+            searchPlaceholder: 'Buscar proyectos, tecnologías o secciones...',
+            searchTrigger: 'Buscar...',
+            noResults: 'Sin resultados para tu búsqueda.',
+            viewDetails: 'Ver detalles',
+            closePanel: 'Cerrar panel',
+            explorer: 'EXPLORADOR',
+            filters: {
+                all: 'Todos',
+                fullstack: 'React / Full-Stack',
+                aiZoho: 'IA & Zoho',
+                other: 'Eventos & Otros'
             }
         },
         hero: {
@@ -262,34 +296,68 @@ export const translations = {
         },
         brands: {
             buttonLabel: 'Styles',
-            buttonAria: 'Open rebranding lab',
-            panelTitle: 'Rebranding Lab',
+            buttonAria: 'Open layout lab',
+            panelTitle: 'Layout Lab (11)',
             currentBadge: 'Current',
             options: {
                 architect: {
                     name: 'Architect',
-                    tag: 'Precision • Linear / Vercel'
+                    tag: 'Floating pill • Bento'
                 },
                 terminal: {
                     name: 'Terminal',
-                    tag: 'Analytical • AI / DevOps'
+                    tag: 'Fixed split-screen'
                 },
                 executive: {
                     name: 'Executive',
-                    tag: 'Refined • Senior Tech Lead'
-                },
-                swiss: {
-                    name: 'Swiss Studio',
-                    tag: 'Creative • Bold Editorial'
+                    tag: 'Tabbed dossier'
                 },
                 ocean: {
-                    name: 'Ocean SaaS',
-                    tag: 'Proactive • Dynamic Product'
+                    name: 'Ocean Dock',
+                    tag: 'Bento + macOS Dock'
                 },
-                monochrome: {
-                    name: 'Monochrome',
-                    tag: 'Zen • Architectural Gallery'
+                ide: {
+                    name: 'IDE Workspace',
+                    tag: 'VS Code / Cursor editor'
+                },
+                showcase: {
+                    name: 'Showcase',
+                    tag: 'Master-Detail live panel'
+                },
+                linear: {
+                    name: 'Linear ⌘K',
+                    tag: 'Command Palette + Slide-Over'
+                },
+                readcv: {
+                    name: 'Read.cv',
+                    tag: 'Minimal senior dossier'
+                },
+                sidebar: {
+                    name: 'Sidebar Portal',
+                    tag: 'Collapsible left sidebar'
+                },
+                story: {
+                    name: 'Story Cards',
+                    tag: 'Scroll Spy + Filters'
+                },
+                studio: {
+                    name: 'Tech Studio',
+                    tag: 'Consultant + Asymmetric Grid'
                 }
+            }
+        },
+        layoutUi: {
+            searchPlaceholder: 'Search projects, tech stack, or sections...',
+            searchTrigger: 'Search...',
+            noResults: 'No results match your query.',
+            viewDetails: 'View details',
+            closePanel: 'Close panel',
+            explorer: 'EXPLORER',
+            filters: {
+                all: 'All',
+                fullstack: 'React / Full-Stack',
+                aiZoho: 'AI & Zoho',
+                other: 'Events & Other'
             }
         },
         hero: {
