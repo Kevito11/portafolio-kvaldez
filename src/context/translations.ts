@@ -14,6 +14,38 @@ export const translations = {
             switchToLight: 'Cambiar a modo claro',
             switchToDark: 'Cambiar a modo oscuro'
         },
+        brands: {
+            buttonLabel: 'Estilos',
+            buttonAria: 'Abrir laboratorio de estilos',
+            panelTitle: 'Laboratorio de Rebranding',
+            currentBadge: 'Actual',
+            options: {
+                architect: {
+                    name: 'Architect',
+                    tag: 'Precisión • Linear / Vercel'
+                },
+                terminal: {
+                    name: 'Terminal',
+                    tag: 'Analítico • IA / DevOps'
+                },
+                executive: {
+                    name: 'Executive',
+                    tag: 'Sobrio • Líder Técnico'
+                },
+                swiss: {
+                    name: 'Swiss Studio',
+                    tag: 'Creativo • Editorial Audaz'
+                },
+                ocean: {
+                    name: 'Ocean SaaS',
+                    tag: 'Proactivo • Producto Dinámico'
+                },
+                monochrome: {
+                    name: 'Monochrome',
+                    tag: 'Zen • Galería Arquitectónica'
+                }
+            }
+        },
         hero: {
             badge: 'Ingeniero Desarrollador de Software • República Dominicana',
             name: 'Kevin Valdez',
@@ -33,6 +65,7 @@ export const translations = {
             subtitle: 'Ingeniería orientada a claridad técnica, mantenibilidad y entrega real.',
             locationBadge: 'República Dominicana',
             roleBadge: 'Ingeniero en Sistemas',
+            switchPhoto: 'Cambiar foto de perfil',
             p1: '¡Hola! Soy Kevin, <gold>Ingeniero en Sistemas</gold> con gran pasión por el desarrollo de software y la resolución de problemas técnicos. Me destaco por mi capacidad de aprender rápido, adaptarme a equipos de trabajo dinámicos y aportar soluciones funcionales desde el primer día.',
             p2: 'Con base en <gold>República Dominicana</gold>, mi experiencia abarca desde plataformas web y APIs empresariales hasta automatización con IA y aplicaciones móviles. Me enfoco en escribir software limpio, confiable y preparado para escalar como <gold>Ingeniero Desarrollador</gold>.',
             traits: {
@@ -223,6 +256,38 @@ export const translations = {
             switchToLight: 'Switch to light mode',
             switchToDark: 'Switch to dark mode'
         },
+        brands: {
+            buttonLabel: 'Styles',
+            buttonAria: 'Open rebranding lab',
+            panelTitle: 'Rebranding Lab',
+            currentBadge: 'Current',
+            options: {
+                architect: {
+                    name: 'Architect',
+                    tag: 'Precision • Linear / Vercel'
+                },
+                terminal: {
+                    name: 'Terminal',
+                    tag: 'Analytical • AI / DevOps'
+                },
+                executive: {
+                    name: 'Executive',
+                    tag: 'Refined • Senior Tech Lead'
+                },
+                swiss: {
+                    name: 'Swiss Studio',
+                    tag: 'Creative • Bold Editorial'
+                },
+                ocean: {
+                    name: 'Ocean SaaS',
+                    tag: 'Proactive • Dynamic Product'
+                },
+                monochrome: {
+                    name: 'Monochrome',
+                    tag: 'Zen • Architectural Gallery'
+                }
+            }
+        },
         hero: {
             badge: 'Software Development Engineer • Dominican Republic',
             name: 'Kevin Valdez',
@@ -242,6 +307,7 @@ export const translations = {
             subtitle: 'Engineering driven by technical clarity, maintainability, and real delivery.',
             locationBadge: 'Dominican Republic',
             roleBadge: 'Systems Engineer',
+            switchPhoto: 'Switch profile photo',
             p1: 'Hello! I\'m Kevin, a <gold>Systems Engineer</gold> with a passion for software development and technical problem solving. I stand out for my ability to learn quickly, adapt to dynamic teams, and deliver functional solutions from day one.',
             p2: 'Based in the <gold>Dominican Republic</gold>, my experience spans enterprise web platforms, scalable APIs, AI automation, and mobile apps. I focus on writing clean, reliable software built to scale as a <gold>Software Engineer</gold>.',
             traits: {
