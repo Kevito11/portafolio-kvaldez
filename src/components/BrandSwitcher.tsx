@@ -74,19 +74,25 @@ const BrandSwitcher = () => {
 
     const activeConfig = BRAND_CONFIGS.find((item) => item.id === brand) ?? BRAND_CONFIGS[0];
     const activeAccent = activeConfig[mode][2];
+    const isTopRight = brand === 'ocean';
 
     return (
-        <div ref={containerRef} className="fixed bottom-5 left-5 z-40">
+        <div
+            ref={containerRef}
+            className={isTopRight ? 'fixed top-5 right-5 z-50' : 'fixed bottom-5 left-5 z-40'}
+        >
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         role="menu"
                         aria-label={t.brands.panelTitle}
-                        initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                        initial={{ opacity: 0, y: isTopRight ? -10 : 10, scale: 0.96 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                        exit={{ opacity: 0, y: isTopRight ? -8 : 8, scale: 0.96 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute bottom-full left-0 mb-2.5 w-72 sm:w-80 p-2 rounded-2xl bg-bg-surface/95 backdrop-blur-md border border-border-subtle shadow-2xl"
+                        className={`absolute w-72 sm:w-80 p-2 rounded-2xl bg-bg-surface/95 backdrop-blur-md border border-border-subtle shadow-2xl ${
+                            isTopRight ? 'top-full right-0 mt-2.5' : 'bottom-full left-0 mb-2.5'
+                        }`}
                     >
                         <div className="px-3 py-2 text-[11px] font-mono uppercase tracking-wider text-text-secondary border-b border-border-subtle mb-1.5 flex items-center justify-between">
                             <span>{t.brands.panelTitle}</span>

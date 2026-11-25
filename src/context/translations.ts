@@ -8,7 +8,9 @@ export const translations = {
             skills: 'Habilidades',
             projects: 'Proyectos',
             contact: 'Contacto',
-            resume: 'CV'
+            resume: 'CV',
+            overview: 'Resumen',
+            menu: 'Menú'
         },
         theme: {
             switchToLight: 'Cambiar a modo claro',
@@ -250,7 +252,9 @@ export const translations = {
             skills: 'Skills',
             projects: 'Projects',
             contact: 'Contact',
-            resume: 'Resume'
+            resume: 'Resume',
+            overview: 'Overview',
+            menu: 'Menu'
         },
         theme: {
             switchToLight: 'Switch to light mode',
