@@ -82,6 +82,21 @@ export const translations = {
                 other: 'Eventos & Otros'
             }
         },
+        adminStyle: {
+            modalTitle: 'Modo Admin de Estilos',
+            modalSubtitle: 'Ingresa tu clave para desbloquear el laboratorio.',
+            placeholder: 'Clave de administrador',
+            unlock: 'Desbloquear',
+            cancel: 'Cancelar',
+            invalidKey: 'Clave incorrecta. Intenta nuevamente.',
+            notConfigured: 'Falta configurar VITE_STYLE_ADMIN_HASH en .env.local o Vercel.',
+            publishButton: 'Publicar en producción',
+            publishing: 'Publicando...',
+            publishedRemote: 'Publicado para todos',
+            publishedLocal: 'Guardado (modo local)',
+            publishError: 'Error al publicar',
+            lockButton: 'Bloquear'
+        },
         hero: {
             badge: 'Ingeniero Desarrollador de Software • República Dominicana',
             name: 'Kevin Valdez',
@@ -359,6 +374,21 @@ export const translations = {
                 aiZoho: 'AI & Zoho',
                 other: 'Events & Other'
             }
+        },
+        adminStyle: {
+            modalTitle: 'Style Admin Mode',
+            modalSubtitle: 'Enter your passphrase to unlock the layout lab.',
+            placeholder: 'Admin passphrase',
+            unlock: 'Unlock',
+            cancel: 'Cancel',
+            invalidKey: 'Invalid passphrase. Please try again.',
+            notConfigured: 'VITE_STYLE_ADMIN_HASH is missing. Configure it in .env.local or Vercel.',
+            publishButton: 'Publish to production',
+            publishing: 'Publishing...',
+            publishedRemote: 'Published globally',
+            publishedLocal: 'Saved (local mode)',
+            publishError: 'Publish failed',
+            lockButton: 'Lock'
         },
         hero: {
             badge: 'Software Development Engineer • Dominican Republic',

@@ -1,4 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import {
+    fetchGlobalBrandConfig,
+    isRemoteBrandConfigEnabled,
+} from '../services/brandConfigService';
 
 export type Theme = 'dark' | 'light';
 export type BrandTheme =
@@ -95,6 +99,34 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             // Ignore storage write errors
         }
     }, [brand]);
+
+    // Sync global published brand from Supabase if configured
+    useEffect(() => {
+        if (!isRemoteBrandConfigEnabled()) return;
+        let cancelled = false;
+
+        const syncRemote = async () => {
+            const remote = await fetchGlobalBrandConfig();
+            if (cancelled || !remote) return;
+
+            setBrandState(remote.active_brand);
+
+            // Apply default_mode only if visitor has not manually chosen one
+            try {
+                const userMode = window.localStorage.getItem(MODE_STORAGE_KEY);
+                if (!userMode) {
+                    setModeState(remote.default_mode);
+                }
+            } catch {
+                setModeState(remote.default_mode);
+            }
+        };
+
+        void syncRemote();
+        return () => {
+            cancelled = true;
+        };
+    }, []);
 
     const setMode = (nextMode: Theme) => setModeState(nextMode);
     const toggleTheme = () => setModeState((prev) => (prev === 'dark' ? 'light' : 'dark'));

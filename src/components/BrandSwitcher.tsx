@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { Palette, Check } from 'lucide-react';
+import { Palette, Check, CloudUpload, Lock, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme, type BrandTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { publishGlobalBrandConfig } from '../services/brandConfigService';
 
 interface BrandSwatchConfig {
     id: BrandTheme;
@@ -68,10 +69,13 @@ const BRAND_CONFIGS: BrandSwatchConfig[] = [
     },
 ];
 
-const BrandSwitcher = () => {
+type PublishState = 'idle' | 'saving' | 'savedRemote' | 'savedLocal' | 'error';
+
+const BrandSwitcher = ({ onLock }: { onLock?: () => void }) => {
     const { brand, setBrand, mode } = useTheme();
     const { t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
+    const [publishState, setPublishState] = useState<PublishState>('idle');
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -97,9 +101,37 @@ const BrandSwitcher = () => {
         };
     }, [isOpen]);
 
+    const handlePublish = async () => {
+        setPublishState('saving');
+        const result = await publishGlobalBrandConfig(brand, mode);
+        if (!result.ok) {
+            setPublishState('error');
+        } else if (result.mode === 'remote') {
+            setPublishState('savedRemote');
+        } else {
+            setPublishState('savedLocal');
+        }
+        window.setTimeout(() => setPublishState('idle'), 3000);
+    };
+
     const activeConfig = BRAND_CONFIGS.find((item) => item.id === brand) ?? BRAND_CONFIGS[0];
     const activeAccent = activeConfig[mode][2];
     const isTopRight = brand === 'ocean';
+
+    const getPublishLabel = () => {
+        switch (publishState) {
+            case 'saving':
+                return t.adminStyle.publishing;
+            case 'savedRemote':
+                return t.adminStyle.publishedRemote;
+            case 'savedLocal':
+                return t.adminStyle.publishedLocal;
+            case 'error':
+                return t.adminStyle.publishError;
+            default:
+                return t.adminStyle.publishButton;
+        }
+    };
 
     return (
         <div
@@ -115,16 +147,16 @@ const BrandSwitcher = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: isTopRight ? -8 : 8, scale: 0.96 }}
                         transition={{ duration: 0.18 }}
-                        className={`absolute w-[92vw] sm:w-[460px] max-h-[75vh] overflow-y-auto p-3 rounded-2xl bg-bg-surface/95 backdrop-blur-md border border-border-subtle shadow-2xl ${
+                        className={`absolute w-[92vw] sm:w-[460px] max-h-[78vh] flex flex-col rounded-2xl bg-bg-surface/95 backdrop-blur-md border border-border-subtle shadow-2xl overflow-hidden ${
                             isTopRight ? 'top-full right-0 mt-2.5' : 'bottom-full left-0 mb-2.5'
                         }`}
                     >
-                        <div className="px-2 pb-2 text-[11px] font-mono uppercase tracking-wider text-text-secondary border-b border-border-subtle mb-2.5 flex items-center justify-between">
+                        <div className="px-4 py-2.5 text-[11px] font-mono uppercase tracking-wider text-text-secondary border-b border-border-subtle flex items-center justify-between shrink-0">
                             <span>{t.brands.panelTitle}</span>
                             <span className="text-[10px] text-accent-primary">{mode.toUpperCase()}</span>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div className="p-3 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {BRAND_CONFIGS.map((option) => {
                                 const isActive = brand === option.id;
                                 const copy = t.brands.options[option.id];
@@ -138,7 +170,7 @@ const BrandSwitcher = () => {
                                         aria-checked={isActive}
                                         onClick={() => {
                                             setBrand(option.id);
-                                            setIsOpen(false);
+                                            setPublishState('idle');
                                         }}
                                         className={`w-full flex flex-col justify-between gap-2 p-3 rounded-xl text-left transition-colors cursor-pointer ${
                                             isActive
@@ -179,6 +211,46 @@ const BrandSwitcher = () => {
                                     </button>
                                 );
                             })}
+                        </div>
+
+                        {/* Admin Controls Footer */}
+                        <div className="p-3 border-t border-border-subtle bg-bg-elevated/50 flex flex-wrap items-center justify-between gap-2 shrink-0">
+                            <button
+                                type="button"
+                                onClick={handlePublish}
+                                disabled={publishState === 'saving'}
+                                className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl font-mono text-xs font-semibold transition-colors cursor-pointer ${
+                                    publishState === 'error'
+                                        ? 'bg-rose-500/15 text-rose-500 border border-rose-500/40'
+                                        : publishState === 'savedRemote' || publishState === 'savedLocal'
+                                          ? 'bg-emerald-500/15 text-emerald-500 border border-emerald-500/40'
+                                          : 'bg-accent-primary text-accent-on hover:bg-accent-hover'
+                                }`}
+                            >
+                                {publishState === 'saving' ? (
+                                    <Loader2 size={13} className="animate-spin" />
+                                ) : publishState === 'savedRemote' || publishState === 'savedLocal' ? (
+                                    <Check size={13} />
+                                ) : (
+                                    <CloudUpload size={13} />
+                                )}
+                                <span>{getPublishLabel()}</span>
+                            </button>
+
+                            {onLock && (
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setIsOpen(false);
+                                        onLock();
+                                    }}
+                                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-border-subtle bg-bg-surface text-text-secondary hover:text-text-heading hover:border-border-strong font-mono text-xs transition-colors cursor-pointer"
+                                    title={t.adminStyle.lockButton}
+                                >
+                                    <Lock size={13} />
+                                    <span>{t.adminStyle.lockButton}</span>
+                                </button>
+                            )}
                         </div>
                     </motion.div>
                 )}
