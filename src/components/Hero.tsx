@@ -1,104 +1,121 @@
-import Section from './Section';
 import { motion } from 'framer-motion';
+import { ArrowRight, Mail } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { useTheme } from '../context/ThemeContext';
 
 const Hero = () => {
     const { t } = useLanguage();
-    const { theme } = useTheme();
-
-    const isEditorial = theme === 'editorial';
-    const isBento = theme === 'bento';
 
     return (
-        <Section id="hero" className="min-h-screen flex flex-col justify-center items-start pt-0">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className={
-                    isBento
-                        ? 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-bg-surface border border-border-subtle text-accent-primary font-mono mb-6 text-xs tracking-wider'
-                        : isEditorial
-                          ? 'flex items-center gap-3 text-accent-primary font-mono mb-5 text-sm tracking-widest uppercase'
-                          : 'text-accent-primary font-mono mb-4 text-lg'
-                }
-            >
-                {isBento && (
-                    <span className="w-2 h-2 rounded-full bg-accent-secondary animate-pulse" aria-hidden="true" />
-                )}
-                {isEditorial && (
-                    <span className="w-10 h-[2px] bg-accent-primary inline-block" aria-hidden="true" />
-                )}
-                <span>{t.hero.greeting}</span>
-            </motion.div>
+        <section
+            id="hero"
+            className="relative min-h-[92vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden"
+        >
+            {/* Subtle Architectural Grid Background with Radial Fade */}
+            <div
+                className="pointer-events-none absolute inset-0 bg-architectural-grid"
+                style={{
+                    maskImage: 'radial-gradient(ellipse 75% 65% at 50% 35%, black 25%, transparent 100%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 75% 65% at 50% 35%, black 25%, transparent 100%)',
+                }}
+                aria-hidden="true"
+            />
 
-            <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className={
-                    isEditorial
-                        ? 'text-6xl md:text-8xl font-serif font-extrabold text-text-heading mb-4 tracking-tight leading-[1.03]'
-                        : isBento
-                          ? 'text-5xl md:text-7xl font-heading font-bold text-text-heading mb-4 tracking-tighter'
-                          : 'text-5xl md:text-7xl font-heading font-bold text-text-heading mb-4 tracking-tight'
-                }
-            >
-                Kevin Valdez.
-            </motion.h1>
+            {/* Measured Ambient Indigo Top Highlight */}
+            <div
+                className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[560px] h-[260px] rounded-full bg-accent-primary/10 blur-[110px]"
+                aria-hidden="true"
+            />
 
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className={
-                    isEditorial
-                        ? 'text-3xl md:text-5xl font-serif italic font-normal text-text-secondary mb-8 tracking-tight'
-                        : isBento
-                          ? 'text-3xl md:text-5xl font-heading font-semibold text-text-secondary mb-6 tracking-tight'
-                          : 'text-4xl md:text-6xl font-heading font-bold text-text-primary mb-6 tracking-tight'
-                }
-            >
-                {t.hero.role}
-            </motion.h2>
+            <div className="relative z-10 container mx-auto px-5 sm:px-6 md:px-10 max-w-5xl">
+                <div className="flex flex-col items-center text-center">
+                    {/* Status / Role Pill */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.45 }}
+                        className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-bg-surface border border-border-subtle shadow-xs mb-8"
+                    >
+                        <span className="relative flex h-2 w-2" aria-hidden="true">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                        </span>
+                        <span className="font-mono text-xs text-text-secondary font-medium">
+                            {t.hero.badge}
+                        </span>
+                    </motion.div>
 
-            {isEditorial && (
-                <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.5, delay: 0.35 }}
-                    className="w-24 h-[1px] bg-border-subtle origin-left mb-8"
-                />
-            )}
+                    {/* Headline */}
+                    <motion.h1
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.08 }}
+                        className="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-text-heading tracking-tight leading-[1.06] max-w-4xl"
+                    >
+                        {t.hero.name}
+                        <span className="text-accent-primary">.</span>
+                        <span className="block mt-2 text-text-secondary font-bold text-3xl sm:text-5xl lg:text-[3.5rem] leading-[1.12]">
+                            {t.hero.headline}
+                        </span>
+                    </motion.h1>
 
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className={`text-text-secondary text-lg max-w-xl mb-10 leading-relaxed ${
-                    isEditorial ? 'text-text-primary/85 md:text-xl' : ''
-                }`}
-            >
-                {t.hero.description}
-            </motion.p>
+                    {/* Concise Value Prop */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.16 }}
+                        className="mt-6 text-base sm:text-lg text-text-secondary max-w-2xl leading-relaxed"
+                    >
+                        {t.hero.description}
+                    </motion.p>
 
-            <motion.a
-                href="#projects"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className={
-                    isEditorial
-                        ? 'inline-block px-10 py-4 bg-accent-primary text-accent-on font-mono text-sm uppercase tracking-wider border border-accent-primary hover:bg-transparent hover:text-accent-primary transition-colors'
-                        : isBento
-                          ? 'inline-block px-8 py-3.5 border border-accent-primary/70 bg-bg-surface text-accent-primary font-mono rounded-xl hover:bg-accent-primary hover:text-accent-on hover:shadow-[0_0_24px_rgba(34,211,238,0.2)] transition-all text-base'
-                          : 'inline-block px-10 py-4 border-2 border-accent-primary text-accent-primary font-sans rounded hover:bg-accent-primary/10 transition-colors text-lg'
-                }
-            >
-                {t.hero.cta}
-            </motion.a>
-        </Section>
+                    {/* CTAs */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.24 }}
+                        className="mt-9 flex flex-wrap items-center justify-center gap-3.5"
+                    >
+                        <a
+                            href="#projects"
+                            className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-primary text-accent-on font-medium text-sm sm:text-base hover:bg-accent-hover transition-colors shadow-xs"
+                        >
+                            <span>{t.hero.ctaPrimary}</span>
+                            <ArrowRight
+                                size={17}
+                                className="transition-transform duration-200 group-hover:translate-x-1"
+                            />
+                        </a>
+
+                        <a
+                            href="#contact"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-bg-surface border border-border-subtle text-text-heading font-medium text-sm sm:text-base hover:border-border-strong hover:bg-bg-elevated transition-colors shadow-xs"
+                        >
+                            <Mail size={16} className="text-text-secondary" />
+                            <span>{t.hero.ctaSecondary}</span>
+                        </a>
+                    </motion.div>
+
+                    {/* Compact Architectural Highlights Strip */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 18 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.55, delay: 0.34 }}
+                        className="mt-16 w-full max-w-3xl grid grid-cols-1 sm:grid-cols-3 rounded-2xl border border-border-subtle bg-bg-surface/85 backdrop-blur-xs divide-y sm:divide-y-0 sm:divide-x divide-border-subtle shadow-xs overflow-hidden"
+                    >
+                        {t.hero.highlights.map((item) => (
+                            <div key={item.value} className="px-5 py-4 text-center sm:text-left">
+                                <span className="block font-mono text-[11px] uppercase tracking-wider text-text-secondary mb-1">
+                                    {item.label}
+                                </span>
+                                <span className="block font-heading text-sm font-semibold text-text-heading">
+                                    {item.value}
+                                </span>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </div>
+        </section>
     );
 };
 

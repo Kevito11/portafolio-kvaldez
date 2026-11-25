@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import Section from './Section';
+import Section, { SectionHeader } from './Section';
 import { Github, ExternalLink, ChevronLeft, ChevronRight, X, Maximize2, Layers } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { useTheme } from '../context/ThemeContext';
 
 const ImageModal = ({
     isOpen,
@@ -24,7 +23,6 @@ const ImageModal = ({
     const [naturalSize, setNaturalSize] = useState({ width: 0, height: 0 });
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Keyboard navigation and Scroll Zoom
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (!isOpen) return;
@@ -58,7 +56,6 @@ const ImageModal = ({
         };
     }, [isOpen, onNext, onPrev, onClose]);
 
-    // Prevent scrolling when modal is open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -71,7 +68,6 @@ const ImageModal = ({
         };
     }, [isOpen]);
 
-    // Reset zoom and position when image changes
     useEffect(() => {
         setZoomScale(1);
         setNaturalSize({ width: 0, height: 0 });
@@ -79,7 +75,6 @@ const ImageModal = ({
 
     const [constraints, setConstraints] = useState({ left: 0, right: 0, top: 0, bottom: 0 });
 
-    // Calculate dynamic constraints based on zoom level and image aspect ratio
     useEffect(() => {
         if (containerRef.current && naturalSize.width > 0) {
             const { width: cW, height: cH } = containerRef.current.getBoundingClientRect();
@@ -102,7 +97,6 @@ const ImageModal = ({
 
             const xOffset = Math.max(0, vW - cW) / 2;
             const yOffset = Math.max(0, vH - cH) / 2;
-
             const margin = 100;
 
             setConstraints({
@@ -148,20 +142,18 @@ const ImageModal = ({
                 className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-black/90 backdrop-blur-md"
                 onClick={onClose}
             >
-                {/* Top Controls */}
                 <div className="absolute top-6 right-6 z-[110]">
                     <motion.button
                         onClick={onClose}
                         className="p-2 text-zinc-100 hover:text-accent-primary transition-colors bg-zinc-900/90 rounded-full border border-zinc-700 cursor-pointer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                        whileHover={{ scale: 1.08 }}
+                        whileTap={{ scale: 0.92 }}
                         aria-label="Close image preview"
                     >
-                        <X size={28} />
+                        <X size={24} />
                     </motion.button>
                 </div>
 
-                {/* Bottom Controls (Zoom) */}
                 <div className="absolute bottom-6 right-6 flex items-center gap-2 z-[110] bg-zinc-900/90 p-2 rounded-full border border-zinc-700 backdrop-blur-sm shadow-xl">
                     <button
                         onClick={handleZoomOut}
@@ -173,21 +165,21 @@ const ImageModal = ({
                         }`}
                         aria-label="Zoom out"
                     >
-                        <Maximize2 size={18} className="rotate-180" />
+                        <Maximize2 size={16} className="rotate-180" />
                     </button>
 
-                    <div className="h-4 w-[1px] bg-zinc-700 mx-1"></div>
+                    <div className="h-4 w-[1px] bg-zinc-700 mx-0.5" />
 
                     <button
                         onClick={toggleZoom}
-                        className={`px-3 py-1 font-mono text-xs rounded transition-all cursor-pointer ${
-                            isZoomed ? 'text-accent-primary bg-zinc-800' : 'text-zinc-300 hover:text-white'
+                        className={`px-2.5 py-1 font-mono text-xs rounded transition-all cursor-pointer ${
+                            isZoomed ? 'text-indigo-400 bg-zinc-800' : 'text-zinc-300 hover:text-white'
                         }`}
                     >
                         {zoomScale.toFixed(1)}x
                     </button>
 
-                    <div className="h-4 w-[1px] bg-zinc-700 mx-1"></div>
+                    <div className="h-4 w-[1px] bg-zinc-700 mx-0.5" />
 
                     <button
                         onClick={handleZoomIn}
@@ -199,11 +191,10 @@ const ImageModal = ({
                         }`}
                         aria-label="Zoom in"
                     >
-                        <Maximize2 size={18} />
+                        <Maximize2 size={16} />
                     </button>
                 </div>
 
-                {/* Navigation Arrows inside Modal */}
                 {images.length > 1 && !isZoomed && (
                     <>
                         <motion.button
@@ -211,24 +202,24 @@ const ImageModal = ({
                                 e.stopPropagation();
                                 onPrev();
                             }}
-                            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-900/90 text-zinc-100 border border-zinc-700 hover:bg-accent-primary hover:text-accent-on hover:border-accent-primary z-[110] transition-all cursor-pointer"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-zinc-900/90 text-zinc-100 border border-zinc-700 hover:bg-accent-primary hover:text-white hover:border-accent-primary z-[110] transition-all cursor-pointer"
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 0.92 }}
                             aria-label="Previous image"
                         >
-                            <ChevronLeft size={32} />
+                            <ChevronLeft size={28} />
                         </motion.button>
                         <motion.button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 onNext();
                             }}
-                            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-900/90 text-zinc-100 border border-zinc-700 hover:bg-accent-primary hover:text-accent-on hover:border-accent-primary z-[110] transition-all cursor-pointer"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-zinc-900/90 text-zinc-100 border border-zinc-700 hover:bg-accent-primary hover:text-white hover:border-accent-primary z-[110] transition-all cursor-pointer"
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 0.92 }}
                             aria-label="Next image"
                         >
-                            <ChevronRight size={32} />
+                            <ChevronRight size={28} />
                         </motion.button>
                     </>
                 )}
@@ -254,21 +245,20 @@ const ImageModal = ({
                         exit={{ opacity: 0 }}
                         transition={{
                             scale: { type: 'spring', damping: 25, stiffness: 300 },
-                            opacity: { duration: 0.3 },
+                            opacity: { duration: 0.25 },
                         }}
-                        className="relative max-w-7xl max-h-[90vh] flex items-center justify-center rounded-lg shadow-2xl border border-zinc-700 bg-zinc-950"
+                        className="relative max-w-7xl max-h-[90vh] flex items-center justify-center rounded-xl shadow-2xl border border-zinc-700 bg-zinc-950"
                     >
                         <img
                             src={`/${currentImage}`}
                             onLoad={handleImageLoad}
                             alt="Project screenshot full view"
-                            className="w-full h-full object-contain pointer-events-none select-none shadow-2xl transition-transform duration-300"
+                            className="w-full h-full object-contain pointer-events-none select-none"
                         />
                     </motion.div>
                 </div>
 
-                {/* Image Counter */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-zinc-200 font-mono text-sm bg-zinc-900/90 px-4 py-2 rounded-full border border-zinc-700 backdrop-blur-sm">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-zinc-200 font-mono text-xs bg-zinc-900/90 px-3.5 py-1.5 rounded-full border border-zinc-700 backdrop-blur-sm">
                     {currentIndex + 1} / {images.length}
                 </div>
             </motion.div>
@@ -290,10 +280,6 @@ const ProjectCarousel = ({
     onImageClick: (idx: number) => void;
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const { theme } = useTheme();
-
-    const frameRadius =
-        theme === 'bento' ? 'rounded-2xl' : theme === 'editorial' ? 'rounded-xs' : 'rounded';
 
     const nextImage = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -309,44 +295,32 @@ const ProjectCarousel = ({
 
     if (!images || images.length === 0) {
         return (
-            <div
-                className={`w-full h-full ${frameRadius} shadow-xl border border-border-subtle overflow-hidden relative bg-bg-surface p-6 md:p-8 flex flex-col justify-between text-left transition-all duration-300 group hover:border-accent-primary/60`}
-            >
-                {/* Decorative subtle grid background */}
-                <div
-                    className="absolute inset-0 opacity-[0.07] pointer-events-none"
-                    style={{
-                        backgroundImage:
-                            'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
-                        backgroundSize: '28px 28px',
-                    }}
-                    aria-hidden="true"
-                />
+            <div className="w-full h-full relative bg-bg-elevated p-6 flex flex-col justify-between text-left overflow-hidden">
+                <div className="absolute inset-0 bg-architectural-grid opacity-70 pointer-events-none" aria-hidden="true" />
 
                 <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bg-primary border border-border-subtle text-accent-primary font-mono text-xs">
-                        <Layers size={14} />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-bg-surface border border-border-subtle text-accent-primary font-mono text-[11px] font-medium">
+                        <Layers size={12} />
                         <span>{fallbackLabel}</span>
                     </span>
                     <span className="flex gap-1.5" aria-hidden="true">
-                        <span className="w-2.5 h-2.5 rounded-full bg-border-subtle" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-border-subtle" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-accent-primary/70" />
+                        <span className="w-2 h-2 rounded-full bg-border-strong" />
+                        <span className="w-2 h-2 rounded-full bg-border-strong" />
+                        <span className="w-2 h-2 rounded-full bg-accent-primary" />
                     </span>
                 </div>
 
-                <div className="relative z-10 my-auto py-4">
-                    <h4 className="text-xl md:text-2xl font-serif font-bold text-text-heading leading-snug mb-2">
+                <div className="relative z-10 my-auto py-3">
+                    <h4 className="text-lg sm:text-xl font-heading font-bold text-text-heading leading-snug max-w-md">
                         {title}
                     </h4>
-                    <div className="w-12 h-[2px] bg-accent-primary" />
                 </div>
 
-                <div className="relative z-10 flex flex-wrap gap-2">
-                    {tech.slice(0, 5).map((item) => (
+                <div className="relative z-10 flex flex-wrap gap-1.5">
+                    {tech.slice(0, 4).map((item) => (
                         <span
                             key={item}
-                            className="px-2.5 py-1 text-[11px] font-mono rounded-md bg-bg-primary/90 border border-border-subtle text-text-secondary"
+                            className="px-2 py-0.5 text-[11px] font-mono rounded-md bg-bg-surface border border-border-subtle text-text-secondary"
                         >
                             {item}
                         </span>
@@ -359,28 +333,26 @@ const ProjectCarousel = ({
     if (images.length === 1) {
         return (
             <div
-                className={`w-full h-full ${frameRadius} shadow-xl border border-border-subtle overflow-hidden relative group cursor-zoom-in bg-bg-surface transition-colors duration-300`}
+                className="w-full h-full overflow-hidden relative group cursor-zoom-in bg-bg-elevated"
                 onClick={() => onImageClick(0)}
             >
-                <div className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 pointer-events-none flex items-center justify-center">
-                    <Maximize2 className="text-accent-primary drop-shadow-lg" size={32} />
+                <div className="absolute top-3 right-3 z-20 p-2 rounded-full bg-black/55 backdrop-blur-xs text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    <Maximize2 size={15} />
                 </div>
                 <img
                     src={`/${images[0]}`}
                     alt={title}
-                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-[1.02]"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                 />
             </div>
         );
     }
 
     return (
-        <div
-            className={`w-full h-full ${frameRadius} shadow-xl border border-border-subtle overflow-hidden relative group bg-bg-surface transition-colors duration-300`}
-        >
+        <div className="w-full h-full overflow-hidden relative group bg-bg-elevated">
             <div className="w-full h-full cursor-zoom-in relative" onClick={() => onImageClick(currentIndex)}>
-                <div className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 pointer-events-none flex items-center justify-center">
-                    <Maximize2 className="text-accent-primary drop-shadow-lg" size={32} />
+                <div className="absolute top-3 right-3 z-20 p-2 rounded-full bg-black/55 backdrop-blur-xs text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    <Maximize2 size={15} />
                 </div>
                 <AnimatePresence mode="wait">
                     <motion.img
@@ -390,30 +362,28 @@ const ProjectCarousel = ({
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                        transition={{ duration: 0.25 }}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                 </AnimatePresence>
             </div>
 
-            {/* Navigation Arrows */}
             <button
                 onClick={prevImage}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-bg-primary/90 p-2 rounded-full text-accent-primary opacity-0 group-hover:opacity-100 transition-opacity z-30 border border-accent-primary/40 hover:bg-accent-primary hover:text-accent-on cursor-pointer"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 bg-black/60 backdrop-blur-xs p-1.5 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-30 hover:bg-accent-primary cursor-pointer"
                 aria-label="Previous image"
             >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={18} />
             </button>
             <button
                 onClick={nextImage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-bg-primary/90 p-2 rounded-full text-accent-primary opacity-0 group-hover:opacity-100 transition-opacity z-30 border border-accent-primary/40 hover:bg-accent-primary hover:text-accent-on cursor-pointer"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-black/60 backdrop-blur-xs p-1.5 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-30 hover:bg-accent-primary cursor-pointer"
                 aria-label="Next image"
             >
-                <ChevronRight size={20} />
+                <ChevronRight size={18} />
             </button>
 
-            {/* Dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30 bg-bg-primary/70 backdrop-blur-xs px-2.5 py-1.5 rounded-full border border-border-subtle/70">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-30 bg-black/55 backdrop-blur-xs px-2.5 py-1.5 rounded-full">
                 {images.map((_, idx) => (
                     <button
                         key={idx}
@@ -422,10 +392,8 @@ const ProjectCarousel = ({
                             e.stopPropagation();
                             setCurrentIndex(idx);
                         }}
-                        className={`h-2 rounded-full transition-all cursor-pointer ${
-                            idx === currentIndex
-                                ? 'bg-accent-primary w-4'
-                                : 'w-2 bg-text-secondary/50 hover:bg-text-primary'
+                        className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                            idx === currentIndex ? 'bg-white w-4' : 'w-1.5 bg-white/45 hover:bg-white/80'
                         }`}
                         aria-label={`Go to image ${idx + 1}`}
                     />
@@ -448,12 +416,8 @@ interface ProjectItemData {
 
 const Projects = () => {
     const { t } = useLanguage();
-    const { theme } = useTheme();
     const [selectedProjectImages, setSelectedProjectImages] = useState<string[] | null>(null);
     const [modalIndex, setModalIndex] = useState(0);
-
-    const isBento = theme === 'bento';
-    const isEditorial = theme === 'editorial';
 
     const openModal = (images: string[], index: number) => {
         setSelectedProjectImages(images);
@@ -472,7 +436,7 @@ const Projects = () => {
         }
     };
 
-    // Static data with images and links (index-aligned with t.projects.list)
+    // Static data with images and links (strictly index-aligned with t.projects.list)
     const projectsData: Array<{
         links: {
             github?: string;
@@ -594,136 +558,117 @@ const Projects = () => {
         ...projectsData[index],
     }));
 
-    const buttonShape = isBento ? 'rounded-xl' : isEditorial ? 'rounded-xs' : 'rounded';
-
     return (
         <Section id="projects">
-            <div
-                className={`flex items-center mb-12 w-full max-w-4xl mx-auto ${
-                    isEditorial ? 'border-b-2 border-text-heading/15 pb-4' : ''
-                }`}
-            >
-                <span className="text-accent-primary font-mono text-xl mr-2">05.</span>
-                <h2
-                    className={`font-bold text-text-heading whitespace-nowrap ${
-                        isEditorial
-                            ? 'text-4xl md:text-5xl font-serif tracking-tight'
-                            : 'text-3xl md:text-4xl font-serif'
-                    }`}
-                >
-                    {t.projects.title}
-                </h2>
-                {!isEditorial && <div className="h-[1px] bg-border-subtle w-full ml-4"></div>}
-            </div>
+            <SectionHeader
+                eyebrow={t.projects.eyebrow}
+                title={t.projects.title}
+                subtitle={t.projects.subtitle}
+            />
 
-            <ul className="space-y-12 md:space-y-24 max-w-5xl mx-auto">
-                {projects.map((project, index) => (
-                    <motion.li
-                        key={project.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className={`relative grid md:grid-cols-12 gap-4 items-center ${
-                            index % 2 !== 0 ? 'md:text-right' : ''
-                        }`}
-                    >
-                        {/* Project Image Area */}
-                        <div
-                            className={`md:col-span-7 h-80 w-full relative group ${
-                                index % 2 !== 0 ? 'md:order-2 md:col-start-6' : 'md:col-start-1'
-                            }`}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {projects.map((project, index) => {
+                    const hasLinks = Boolean(project.links.github || project.links.demo);
+
+                    return (
+                        <motion.article
+                            key={project.title}
+                            initial={{ opacity: 0, y: 18 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.45, delay: (index % 2) * 0.06 }}
+                            className="flex flex-col rounded-2xl border border-border-subtle bg-bg-surface overflow-hidden hover:border-border-strong transition-colors shadow-xs"
                         >
-                            <ProjectCarousel
-                                images={project.images}
-                                title={project.title}
-                                tech={project.tech}
-                                fallbackLabel={t.projects.previewFallback}
-                                onImageClick={(idx) => openModal(project.images, idx)}
-                            />
-                        </div>
-
-                        {/* Project Content Area */}
-                        <div
-                            className={`md:col-span-5 relative z-20 ${
-                                index % 2 !== 0 ? 'md:order-1 md:col-start-1 text-left' : 'md:col-start-8 text-right'
-                            }`}
-                        >
-                            <p className="text-accent-primary font-mono text-sm mb-2">{t.projects.featured}</p>
-                            <h3 className="text-text-heading font-bold text-2xl mb-4">{project.title}</h3>
-
-                            <div
-                                className={`bg-bg-surface p-6 text-text-secondary text-sm leading-relaxed mb-4 z-20 relative border border-border-subtle transition-all duration-300 ${
-                                    isBento
-                                        ? 'rounded-2xl shadow-lg hover:border-accent-primary/50'
-                                        : isEditorial
-                                          ? 'rounded-xs shadow-sm'
-                                          : 'rounded shadow-xl hover:shadow-2xl'
-                                }`}
-                            >
-                                {project.description}
+                            {/* 16:10 Media Preview */}
+                            <div className="aspect-[16/10] w-full border-b border-border-subtle overflow-hidden">
+                                <ProjectCarousel
+                                    images={project.images}
+                                    title={project.title}
+                                    tech={project.tech}
+                                    fallbackLabel={t.projects.previewFallback}
+                                    onImageClick={(idx) => openModal(project.images, idx)}
+                                />
                             </div>
 
-                            <ul
-                                className={`flex flex-wrap gap-3 text-text-secondary font-mono text-xs mb-8 ${
-                                    index % 2 !== 0 ? 'justify-start' : 'justify-end'
-                                }`}
-                            >
-                                {project.tech.map((tech) => (
-                                    <li
-                                        key={tech}
-                                        className={
-                                            isBento
-                                                ? 'whitespace-nowrap px-2.5 py-1 rounded-md bg-bg-surface border border-border-subtle text-text-primary'
-                                                : 'whitespace-nowrap'
-                                        }
-                                    >
-                                        {tech}
-                                    </li>
-                                ))}
-                            </ul>
+                            {/* Card Body */}
+                            <div className="flex flex-col flex-1 p-6">
+                                <div className="flex items-start justify-between gap-3 mb-2.5">
+                                    <h3 className="text-lg sm:text-xl font-heading font-bold text-text-heading leading-snug">
+                                        {project.title}
+                                    </h3>
+                                    {index < 3 && (
+                                        <span className="shrink-0 px-2.5 py-0.5 rounded-full bg-accent-soft text-accent-primary font-mono text-[11px] font-medium">
+                                            {t.projects.featured}
+                                        </span>
+                                    )}
+                                </div>
 
-                            <div className={`flex flex-wrap gap-4 ${index % 2 !== 0 ? 'justify-start' : 'justify-end'}`}>
-                                {project.links.github && (
-                                    <a
-                                        href={project.links.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`flex items-center gap-2 px-4 py-2 border border-accent-primary text-accent-primary ${buttonShape} hover:bg-accent-primary hover:text-accent-on transition-all font-mono text-sm`}
-                                        aria-label="GitHub Repo"
-                                    >
-                                        <Github size={18} /> <span>GitHub</span>
-                                    </a>
-                                )}
-                                {project.links.demo &&
-                                    (typeof project.links.demo === 'string' ? (
-                                        <a
-                                            href={project.links.demo}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`flex items-center gap-2 px-4 py-2 border border-accent-primary text-accent-primary ${buttonShape} hover:bg-accent-primary hover:text-accent-on transition-all font-mono text-sm`}
-                                            aria-label="Live Demo"
+                                <p className="text-sm text-text-secondary leading-relaxed mb-5 flex-1">
+                                    {project.description}
+                                </p>
+
+                                {/* Stack Pills */}
+                                <ul className="flex flex-wrap gap-1.5 mb-5">
+                                    {project.tech.map((tech) => (
+                                        <li
+                                            key={tech}
+                                            className="px-2.5 py-1 rounded-md bg-bg-elevated border border-border-subtle font-mono text-[11px] text-text-secondary"
                                         >
-                                            <ExternalLink size={18} /> <span>Demo</span>
-                                        </a>
-                                    ) : (
-                                        Object.entries(project.links.demo).map(([key, url]) => (
+                                            {tech}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                {/* Action Buttons */}
+                                {hasLinks && (
+                                    <div className="pt-4 border-t border-border-subtle flex flex-wrap gap-2.5">
+                                        {project.links.demo &&
+                                            (typeof project.links.demo === 'string' ? (
+                                                <a
+                                                    href={project.links.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-accent-primary text-accent-on hover:bg-accent-hover transition-colors font-mono text-xs font-medium"
+                                                    aria-label="Live Demo"
+                                                >
+                                                    <ExternalLink size={14} />
+                                                    <span>Demo</span>
+                                                </a>
+                                            ) : (
+                                                Object.entries(project.links.demo).map(([key, url]) => (
+                                                    <a
+                                                        key={key}
+                                                        href={url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-accent-primary text-accent-on hover:bg-accent-hover transition-colors font-mono text-xs font-medium"
+                                                        aria-label={`Live Demo ${key}`}
+                                                    >
+                                                        <ExternalLink size={14} />
+                                                        <span>{key}</span>
+                                                    </a>
+                                                ))
+                                            ))}
+
+                                        {project.links.github && (
                                             <a
-                                                key={key}
-                                                href={url}
+                                                href={project.links.github}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`flex items-center gap-2 px-4 py-2 border border-accent-primary text-accent-primary ${buttonShape} hover:bg-accent-primary hover:text-accent-on transition-all font-mono text-sm`}
-                                                aria-label={`Live Demo ${key}`}
+                                                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-bg-elevated border border-border-subtle text-text-heading hover:border-border-strong transition-colors font-mono text-xs font-medium"
+                                                aria-label="GitHub Repo"
                                             >
-                                                <ExternalLink size={18} /> <span>{key}</span>
+                                                <Github size={14} />
+                                                <span>GitHub</span>
                                             </a>
-                                        ))
-                                    ))}
+                                        )}
+                                    </div>
+                                )}
                             </div>
-                        </div>
-                    </motion.li>
-                ))}
-            </ul>
+                        </motion.article>
+                    );
+                })}
+            </div>
 
             <ImageModal
                 isOpen={!!selectedProjectImages}

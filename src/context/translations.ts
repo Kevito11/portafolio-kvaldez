@@ -2,50 +2,49 @@ export const translations = {
     es: {
         nav: {
             home: 'Inicio',
-            about: 'Sobre Mí',
+            about: 'Sobre mí',
             experience: 'Experiencia',
             education: 'Educación',
             skills: 'Habilidades',
             projects: 'Proyectos',
             contact: 'Contacto',
-            resume: 'Currículum'
+            resume: 'CV'
         },
         theme: {
-            label: 'Estilo visual',
-            buttonAria: 'Cambiar estilo visual',
-            options: {
-                classic: {
-                    name: 'Clásico',
-                    desc: 'Navy & Dorado elegante'
-                },
-                bento: {
-                    name: 'Bento Tech',
-                    desc: 'Grafito minimalista & cian'
-                },
-                editorial: {
-                    name: 'Editorial',
-                    desc: 'Papel cálido & alto contraste'
-                }
-            }
+            switchToLight: 'Cambiar a modo claro',
+            switchToDark: 'Cambiar a modo oscuro'
         },
         hero: {
-            greeting: 'HOLA, MI NOMBRE ES',
-            role: 'Ingeniero Desarrollador de Software.',
-            description: 'Especializado en arquitectura Full-Stack, APIs escalables (estándar LTI), integración de Inteligencia Artificial, automatización interplataforma e infraestructura DevOps orientada a resultados.',
-            cta: 'Ver mis Proyectos'
+            badge: 'Ingeniero Desarrollador de Software • República Dominicana',
+            name: 'Kevin Valdez',
+            headline: 'Construyo software escalable, APIs e integraciones con IA.',
+            description: 'Arquitectura Full-Stack, estándares LTI, automatización interplataforma e infraestructura DevOps enfocada en impacto real.',
+            ctaPrimary: 'Ver Proyectos',
+            ctaSecondary: 'Contactar',
+            highlights: [
+                { label: 'Arquitectura', value: 'Full-Stack & APIs (LTI)' },
+                { label: 'Inteligencia Artificial', value: 'IA & Automatización' },
+                { label: 'Operaciones', value: 'Infraestructura & DevOps' }
+            ]
         },
         about: {
-            title: 'Sobre Mí',
+            eyebrow: 'Perfil',
+            title: 'Sobre mí',
+            subtitle: 'Ingeniería orientada a claridad técnica, mantenibilidad y entrega real.',
+            locationBadge: 'República Dominicana',
+            roleBadge: 'Ingeniero en Sistemas',
             p1: '¡Hola! Soy Kevin, <gold>Ingeniero en Sistemas</gold> con gran pasión por el desarrollo de software y la resolución de problemas técnicos. Me destaco por mi capacidad de aprender rápido, adaptarme a equipos de trabajo dinámicos y aportar soluciones funcionales desde el primer día.',
-            p2: 'Con base en <gold>República Dominicana</gold>, mi interés va desde el desarrollo web hasta aplicaciones móviles. Me encuentro preparado para integrarme a equipos de alto rendimiento como <gold>Desarrollador</gold>, aportando valor y creciendo profesionalmente en cada proyecto.',
+            p2: 'Con base en <gold>República Dominicana</gold>, mi experiencia abarca desde plataformas web y APIs empresariales hasta automatización con IA y aplicaciones móviles. Me enfoco en escribir software limpio, confiable y preparado para escalar como <gold>Ingeniero Desarrollador</gold>.',
             traits: {
-                analytical: { title: 'Analítico', desc: 'Descompongo problemas complejos en soluciones lógicas.' },
-                creative: { title: 'Creativo', desc: 'Diseño experiencias memorables y visualmente atractivas.' },
-                proactive: { title: 'Proactivo', desc: 'Siempre buscando nuevas tecnologías y mejores prácticas.' }
+                analytical: { title: 'Analítico', desc: 'Descompongo problemas complejos en arquitecturas limpias y lógicas.' },
+                creative: { title: 'Creativo', desc: 'Diseño interfaces cuidadas, rápidas y pensadas para el usuario.' },
+                proactive: { title: 'Proactivo', desc: 'En búsqueda constante de mejores prácticas, automatización y calidad.' }
             }
         },
         experience: {
+            eyebrow: 'Trayectoria',
             title: 'Experiencia',
+            subtitle: 'Liderazgo técnico extremo a extremo en desarrollo, IA e infraestructura.',
             presentBadge: 'Actualidad',
             items: [
                 {
@@ -83,7 +82,10 @@ export const translations = {
             ]
         },
         education: {
+            eyebrow: 'Formación',
             title: 'Educación',
+            subtitle: 'Base académica en ingeniería y formación continua en desarrollo moderno.',
+            defaultBadge: 'Certificación',
             items: [
                 {
                     institution: 'Universidad Dominicana O&M',
@@ -108,7 +110,9 @@ export const translations = {
             ]
         },
         skills: {
-            title: 'Habilidades Técnicas',
+            eyebrow: 'Stack Técnico',
+            title: 'Habilidades',
+            subtitle: 'Herramientas y tecnologías que utilizo en producción.',
             groups: [
                 {
                     title: 'Backend & APIs',
@@ -134,8 +138,10 @@ export const translations = {
             ]
         },
         projects: {
-            title: 'Mis proyectos',
-            featured: 'Proyecto Destacado',
+            eyebrow: 'Portafolio',
+            title: 'Proyectos seleccionados',
+            subtitle: 'Soluciones de producción en SaaS, automatización con IA, eventos y web.',
+            featured: 'Destacado',
             viewArchive: 'Ver Archivo Completo',
             demoAdmin: 'Demo Admin',
             demoVoter: 'Demo Votante',
@@ -184,16 +190,20 @@ export const translations = {
             ]
         },
         contact: {
-            subtitle: '06. ¿Qué sigue?',
-            title: 'Ponte en Contacto',
-            text: 'Siempre estoy interesado en conectar con otros profesionales y explorar nuevas colaboraciones tecnológicas. Si tienes una propuesta o simplemente quieres saludar, ¡será un gusto conversar!',
-            cta: 'Contáctame',
-            footer: 'Diseñado & Construido por Kevin Valdez',
+            eyebrow: 'Contacto',
+            title: 'Construyamos algo juntos',
+            text: 'Siempre estoy abierto a conectar con otros profesionales, explorar nuevos retos técnicos o conversar sobre proyectos interesantes.',
+            cta: 'Ponerme en contacto',
+            ctaResume: 'Descargar CV',
+            footer: '© 2026 Kevin Valdez. Diseñado y construido con precisión.',
+            backToTop: 'Volver arriba',
             modal: {
                 title: 'Información de Contacto',
                 email: 'Correo Electrónico',
-                phone: 'Teléfono',
+                phone: 'WhatsApp',
                 linkedin: 'LinkedIn',
+                copy: 'Copiar',
+                copied: '¡Copiado!',
                 close: 'Cerrar'
             }
         }
@@ -210,41 +220,40 @@ export const translations = {
             resume: 'Resume'
         },
         theme: {
-            label: 'Visual style',
-            buttonAria: 'Switch visual style',
-            options: {
-                classic: {
-                    name: 'Classic',
-                    desc: 'Refined Navy & Gold'
-                },
-                bento: {
-                    name: 'Bento Tech',
-                    desc: 'Minimalist graphite & cyan'
-                },
-                editorial: {
-                    name: 'Editorial',
-                    desc: 'Warm paper & high contrast'
-                }
-            }
+            switchToLight: 'Switch to light mode',
+            switchToDark: 'Switch to dark mode'
         },
         hero: {
-            greeting: 'HI, MY NAME IS',
-            role: 'Software Development Engineer.',
-            description: 'Specialized in Full-Stack architecture, scalable APIs (LTI standard), Artificial Intelligence integration, cross-platform automation, and results-driven DevOps infrastructure.',
-            cta: 'Check out my work'
+            badge: 'Software Development Engineer • Dominican Republic',
+            name: 'Kevin Valdez',
+            headline: 'Building scalable software, APIs, and AI integrations.',
+            description: 'Full-Stack architecture, LTI standards, cross-platform automation, and DevOps infrastructure engineered for real-world impact.',
+            ctaPrimary: 'View Projects',
+            ctaSecondary: 'Get in Touch',
+            highlights: [
+                { label: 'Architecture', value: 'Full-Stack & APIs (LTI)' },
+                { label: 'Artificial Intelligence', value: 'AI & Automation' },
+                { label: 'Operations', value: 'Infrastructure & DevOps' }
+            ]
         },
         about: {
-            title: 'About Me',
+            eyebrow: 'Profile',
+            title: 'About me',
+            subtitle: 'Engineering driven by technical clarity, maintainability, and real delivery.',
+            locationBadge: 'Dominican Republic',
+            roleBadge: 'Systems Engineer',
             p1: 'Hello! I\'m Kevin, a <gold>Systems Engineer</gold> with a passion for software development and technical problem solving. I stand out for my ability to learn quickly, adapt to dynamic teams, and deliver functional solutions from day one.',
-            p2: 'Based in the <gold>Dominican Republic</gold>, my interest ranges from web development to mobile apps. I am ready to join high-performance teams as a <gold>Developer</gold>, adding value and growing professionally in every project.',
+            p2: 'Based in the <gold>Dominican Republic</gold>, my experience spans enterprise web platforms, scalable APIs, AI automation, and mobile apps. I focus on writing clean, reliable software built to scale as a <gold>Software Engineer</gold>.',
             traits: {
-                analytical: { title: 'Analytical', desc: 'I break down complex problems into logical solutions.' },
-                creative: { title: 'Creative', desc: 'I design memorable and visually appealing experiences.' },
-                proactive: { title: 'Proactive', desc: 'Always looking for new technologies and best practices.' }
+                analytical: { title: 'Analytical', desc: 'I break down complex problems into clean, logical architectures.' },
+                creative: { title: 'Creative', desc: 'I craft thoughtful, fast, user-centered digital interfaces.' },
+                proactive: { title: 'Proactive', desc: 'Continuously pursuing best practices, automation, and quality.' }
             }
         },
         experience: {
+            eyebrow: 'Career',
             title: 'Experience',
+            subtitle: 'End-to-end technical ownership across development, AI, and infrastructure.',
             presentBadge: 'Present',
             items: [
                 {
@@ -282,7 +291,10 @@ export const translations = {
             ]
         },
         education: {
+            eyebrow: 'Background',
             title: 'Education',
+            subtitle: 'Academic engineering foundation paired with continuous modern software training.',
+            defaultBadge: 'Certification',
             items: [
                 {
                     institution: 'Dominican University O&M',
@@ -307,7 +319,9 @@ export const translations = {
             ]
         },
         skills: {
-            title: 'Technical Skills',
+            eyebrow: 'Tech Stack',
+            title: 'Skills',
+            subtitle: 'Tools and technologies I rely on in production.',
             groups: [
                 {
                     title: 'Backend & APIs',
@@ -333,8 +347,10 @@ export const translations = {
             ]
         },
         projects: {
-            title: 'My Projects',
-            featured: 'Featured Project',
+            eyebrow: 'Work',
+            title: 'Selected projects',
+            subtitle: 'Production work across SaaS, AI automation, events, and web platforms.',
+            featured: 'Featured',
             viewArchive: 'View Full Archive',
             demoAdmin: 'Admin Demo',
             demoVoter: 'Voter Demo',
@@ -383,16 +399,20 @@ export const translations = {
             ]
         },
         contact: {
-            subtitle: '06. What\'s Next?',
-            title: 'Get In Touch',
-            text: 'I\'m always interested in connecting with other professionals and exploring new tech collaborations. Whether you have a proposal or just want to say hi, I\'ll be happy to chat!',
-            cta: 'Contact Me',
-            footer: 'Designed & Built by Kevin Valdez',
+            eyebrow: 'Contact',
+            title: 'Let\'s build something together',
+            text: 'I\'m always open to connecting with fellow engineers, exploring new technical challenges, or discussing impactful projects.',
+            cta: 'Get in touch',
+            ctaResume: 'Download Resume',
+            footer: '© 2026 Kevin Valdez. Designed & built with precision.',
+            backToTop: 'Back to top',
             modal: {
                 title: 'Contact Information',
                 email: 'Email Address',
-                phone: 'Phone',
+                phone: 'WhatsApp',
                 linkedin: 'LinkedIn',
+                copy: 'Copy',
+                copied: 'Copied!',
                 close: 'Close'
             }
         }

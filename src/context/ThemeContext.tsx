@@ -1,30 +1,26 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export type Theme = 'classic' | 'bento' | 'editorial';
+export type Theme = 'dark' | 'light';
 
 interface ThemeContextType {
     theme: Theme;
     setTheme: (theme: Theme) => void;
+    toggleTheme: () => void;
 }
 
 const STORAGE_KEY = 'portfolio-theme';
-const VALID_THEMES: readonly Theme[] = ['classic', 'bento', 'editorial'];
-
-const isValidTheme = (value: string | null): value is Theme => {
-    return value !== null && (VALID_THEMES as readonly string[]).includes(value);
-};
 
 const getInitialTheme = (): Theme => {
-    if (typeof window === 'undefined') return 'classic';
+    if (typeof window === 'undefined') return 'dark';
     try {
         const stored = window.localStorage.getItem(STORAGE_KEY);
-        if (isValidTheme(stored)) {
+        if (stored === 'dark' || stored === 'light') {
             return stored;
         }
     } catch {
-        // Ignore storage access errors (e.g. private browsing restrictions)
+        // Ignore storage errors
     }
-    return 'classic';
+    return 'dark';
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -41,12 +37,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
     }, [theme]);
 
-    const setTheme = (nextTheme: Theme) => {
-        setThemeState(nextTheme);
-    };
+    const setTheme = (nextTheme: Theme) => setThemeState(nextTheme);
+    const toggleTheme = () => setThemeState((prev) => (prev === 'dark' ? 'light' : 'dark'));
 
     return (
-        <ThemeContext.Provider value={{ theme, setTheme }}>
+        <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     );
@@ -56,8 +51,9 @@ export const useTheme = (): ThemeContextType => {
     const context = useContext(ThemeContext);
     if (!context) {
         return {
-            theme: 'classic',
+            theme: 'dark',
             setTheme: () => {},
+            toggleTheme: () => {},
         };
     }
     return context;
