@@ -1,22 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Nunito:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+:root,
+[data-theme="classic"] {
+  --bg-primary: #0a192f;
+  --bg-surface: #112240;
+  --bg-elevated: #172a45;
 
-@theme {
-  --color-navy-900: #0a192f;
-  --color-navy-800: #112240;
-  --color-navy-700: #233554;
+  --border-subtle: #233554;
+  --border-accent: #d4af37;
 
-  --color-gold-400: #64ffda;
-  --color-gold-500: #d4af37;
-  --color-gold-300: #f1d06e;
+  --text-heading: #f1f5f9;
+  --text-primary: #ccd6f6;
+  --text-secondary: #94a3b8;
 
-  --color-slate-light: #ccd6f6;
-  --color-slate-lighter: #8892b0;
+  --accent-primary: #d4af37;
+  --accent-secondary: #64ffda;
+  --accent-soft: #f1d06e;
+  --accent-on: #0a192f;
 
-  --font-sans: "Nunito", sans-serif;
-  --font-heading: "Inter", sans-serif;
-  --font-serif: "Playfair Display", serif;
+  --radius-card: 0.5rem;
+
+  --font-active-sans: "Nunito", sans-serif;
+  --font-active-heading: "Inter", sans-serif;
+  --font-active-serif: "Playfair Display", serif;
+  --font-active-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  color-scheme: dark;
+}
+
+[data-theme="bento"] {
+  --bg-primary: #09090b;
+  --bg-surface: #121215;
+  --bg-elevated: #18181b;
+
+  --border-subtle: #27272a;
+  --border-accent: #22d3ee;
+
+  --text-heading: #fafafa;
+  --text-primary: #e4e4e7;
+  --text-secondary: #a1a1aa;
+
+  --accent-primary: #22d3ee;
+  --accent-secondary: #10b981;
+  --accent-soft: #67e8f9;
+  --accent-on: #09090b;
+
+  --radius-card: 1rem;
+
+  --font-active-sans: "Inter", sans-serif;
+  --font-active-heading: "Inter", sans-serif;
+  --font-active-serif: "Inter", sans-serif;
+  --font-active-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  color-scheme: dark;
+}
+
+[data-theme="editorial"] {
+  --bg-primary: #f8f7f4;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1efe9;
+
+  --border-subtle: #d6d3cb;
+  --border-accent: #1d4ed8;
+
+  --text-heading: #111827;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+
+  --accent-primary: #1d4ed8;
+  --accent-secondary: #b45309;
+  --accent-soft: #2563eb;
+  --accent-on: #ffffff;
+
+  --radius-card: 0.25rem;
+
+  --font-active-sans: "Inter", sans-serif;
+  --font-active-heading: "Playfair Display", serif;
+  --font-active-serif: "Playfair Display", serif;
+  --font-active-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  color-scheme: light;
+}
+
+@theme inline {
+  /* Semantic tokens */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-accent: var(--border-accent);
+
+  --color-text-heading: var(--text-heading);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-on: var(--accent-on);
+
+  /* Legacy tokens mapped to semantic CSS variables */
+  --color-navy-950: var(--bg-primary);
+  --color-navy-900: var(--bg-primary);
+  --color-navy-800: var(--bg-surface);
+  --color-navy-700: var(--border-subtle);
+
+  --color-gold-500: var(--accent-primary);
+  --color-gold-400: var(--accent-secondary);
+  --color-gold-300: var(--accent-soft);
+
+  --color-slate-light: var(--text-primary);
+  --color-slate-lighter: var(--text-secondary);
+
+  /* Radii */
+  --radius-card: var(--radius-card);
+
+  /* Typography */
+  --font-sans: var(--font-active-sans);
+  --font-heading: var(--font-active-heading);
+  --font-serif: var(--font-active-serif);
+  --font-mono: var(--font-active-mono);
 }
 
 @layer base {
@@ -25,15 +130,16 @@
   }
 
   body {
-    background-color: var(--color-navy-900);
-    color: var(--color-slate-light);
-    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-active-sans);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 300ms ease, color 300ms ease;
   }
 
   ::selection {
-    background-color: var(--color-gold-500);
-    color: var(--color-navy-900);
+    background-color: var(--accent-primary);
+    color: var(--accent-on);
   }
 
   h1,
@@ -42,15 +148,19 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-serif);
-    font-weight: bold;
-    color: #f1f5f9;
-    /* slate-100 equivalent roughly */
+    font-family: var(--font-active-serif);
+    font-weight: 700;
+    color: var(--text-heading);
+    transition: color 300ms ease;
   }
 }
 
 @layer utilities {
   .text-gold {
-    color: var(--color-gold-500);
+    color: var(--accent-primary);
+  }
+
+  .card-radius {
+    border-radius: var(--radius-card);
   }
 }

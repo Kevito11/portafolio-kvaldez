@@ -3,16 +3,35 @@ export const translations = {
         nav: {
             home: 'Inicio',
             about: 'Sobre Mí',
+            experience: 'Experiencia',
             education: 'Educación',
             skills: 'Habilidades',
             projects: 'Proyectos',
             contact: 'Contacto',
             resume: 'Currículum'
         },
+        theme: {
+            label: 'Estilo visual',
+            buttonAria: 'Cambiar estilo visual',
+            options: {
+                classic: {
+                    name: 'Clásico',
+                    desc: 'Navy & Dorado elegante'
+                },
+                bento: {
+                    name: 'Bento Tech',
+                    desc: 'Grafito minimalista & cian'
+                },
+                editorial: {
+                    name: 'Editorial',
+                    desc: 'Papel cálido & alto contraste'
+                }
+            }
+        },
         hero: {
             greeting: 'HOLA, MI NOMBRE ES',
-            role: 'Desarrollador Full Stack.',
-            description: 'Me especializo en construir experiencias digitales excepcionales. Actualmente enfocado en crear productos accesibles y centrados en el usuario.',
+            role: 'Ingeniero Desarrollador de Software.',
+            description: 'Especializado en arquitectura Full-Stack, APIs escalables (estándar LTI), integración de Inteligencia Artificial, automatización interplataforma e infraestructura DevOps orientada a resultados.',
             cta: 'Ver mis Proyectos'
         },
         about: {
@@ -24,6 +43,44 @@ export const translations = {
                 creative: { title: 'Creativo', desc: 'Diseño experiencias memorables y visualmente atractivas.' },
                 proactive: { title: 'Proactivo', desc: 'Siempre buscando nuevas tecnologías y mejores prácticas.' }
             }
+        },
+        experience: {
+            title: 'Experiencia',
+            presentBadge: 'Actualidad',
+            items: [
+                {
+                    role: 'Ingeniero Desarrollador de Software',
+                    period: 'Actualidad',
+                    isCurrent: true,
+                    pillars: [
+                        {
+                            icon: 'code' as const,
+                            title: 'Desarrollo Full-Stack & APIs',
+                            desc: 'Diseño e implementación de soluciones web y APIs robustas y escalables (estándar LTI) utilizando Node.js, JavaScript, PHP y Python.'
+                        },
+                        {
+                            icon: 'ai' as const,
+                            title: 'Integración de IA & Automatización',
+                            desc: 'Automatización de flujos de trabajo interplataforma e integración de capacidades de Inteligencia Artificial cumpliendo rigurosos estándares de ciberseguridad.'
+                        },
+                        {
+                            icon: 'server' as const,
+                            title: 'Infraestructura & DevOps',
+                            desc: 'Arquitectura y administración de servidores de alta disponibilidad, configuración de entornos (dev, staging, prod), políticas de backups y diseño de scripts para QA.'
+                        },
+                        {
+                            icon: 'briefcase' as const,
+                            title: 'Gestión de Proyectos & Clientes',
+                            desc: 'Liderazgo técnico en el ciclo completo de entrega, asegurando el cumplimiento de requerimientos del cliente, calidad de código y entrega oportuna.'
+                        },
+                        {
+                            icon: 'wrench' as const,
+                            title: 'Soporte & Mejora Continua',
+                            desc: 'Mantenimiento preventivo, soporte técnico a incidencias críticas y optimización de procesos internos para maximizar la eficiencia operativa.'
+                        }
+                    ]
+                }
+            ]
         },
         education: {
             title: 'Educación',
@@ -51,16 +108,58 @@ export const translations = {
             ]
         },
         skills: {
-            title: 'Habilidades Técnicas'
+            title: 'Habilidades Técnicas',
+            groups: [
+                {
+                    title: 'Backend & APIs',
+                    items: ['Node.js', 'Express', 'Python', 'PHP', 'Estándar LTI', 'C#']
+                },
+                {
+                    title: 'Frontend',
+                    items: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Redux Toolkit', 'Flutter']
+                },
+                {
+                    title: 'IA, Automatización & Cloud/DevOps',
+                    items: [
+                        'Integración de IA (Gemini/LLMs)',
+                        'Automatización de Flujos',
+                        'Linux / Servidores Alta Disponibilidad',
+                        'Entornos CI/QA & Backups'
+                    ]
+                },
+                {
+                    title: 'Bases de Datos & ERP',
+                    items: ['SQL Server', 'Supabase', 'Firebase', 'SAP Business One', 'Git & GitHub']
+                }
+            ]
         },
         projects: {
             title: 'Mis proyectos',
             featured: 'Proyecto Destacado',
             viewArchive: 'Ver Archivo Completo',
+            demoAdmin: 'Demo Admin',
+            demoVoter: 'Demo Votante',
+            previewFallback: 'Vista previa técnica',
             list: [
+                {
+                    title: 'Dashboard OPEX — E-Learning Script Tracker',
+                    description: 'Plataforma ejecutiva para monitorear un pipeline de producción e-learning en 5 fases (Planificación, Redacción/QC, Sonido, Gráficos y SCORM), con integración a Zoho WorkDrive/Projects y un asesor pedagógico impulsado por Google Gemini AI.'
+                },
+                {
+                    title: 'Sistema de Gestión de Inventario TI & Bóveda (AccessGuard TI)',
+                    description: 'Plataforma corporativa SaaS de alta densidad para gestión jerárquica de activos de hardware, control de acceso por roles (RBAC), bóveda de credenciales cifradas (AES-256), deep linking con sincronización entre pestañas e integración serverless con Zoho Catalyst/Flow.'
+                },
+                {
+                    title: 'Upper Room IBC — Conferencia Despierta 2026',
+                    description: 'Plataforma web de eventos offline-first con registro guiado, generación automática de boletas con código QR, catálogo interactivo de mercancía y panel de Check-In en puerta con escaneo por cámara y sincronización bidireccional con Google Sheets.'
+                },
                 {
                     title: 'Ministerio de Jóvenes - ICC',
                     description: 'Sitio web oficial y plataforma de registro para el ministerio de jóvenes de la Iglesia Convertidos a Cristo (ICC). Cuenta con un diseño premium minimalista, cuenta regresiva, cronograma interactivo de actividades y generación de boletos digitales con códigos QR para el evento.'
+                },
+                {
+                    title: 'Sistema de Votaciones - ICC',
+                    description: 'Plataforma web de votación electrónica para la admisión de membresía en la Iglesia Cristiana de Confraternidad (ICC). Permite votar de forma segura y en tiempo real, conectada a Google Sheets mediante Apps Script, con un panel de administración para gestionar candidatos y un panel del votante optimizado para móviles.'
                 },
                 {
                     title: 'Barber Shop - Landing Page',
@@ -85,7 +184,7 @@ export const translations = {
             ]
         },
         contact: {
-            subtitle: '05. ¿Qué sigue?',
+            subtitle: '06. ¿Qué sigue?',
             title: 'Ponte en Contacto',
             text: 'Siempre estoy interesado en conectar con otros profesionales y explorar nuevas colaboraciones tecnológicas. Si tienes una propuesta o simplemente quieres saludar, ¡será un gusto conversar!',
             cta: 'Contáctame',
@@ -103,16 +202,35 @@ export const translations = {
         nav: {
             home: 'Home',
             about: 'About',
+            experience: 'Experience',
             education: 'Education',
             skills: 'Skills',
             projects: 'Projects',
             contact: 'Contact',
             resume: 'Resume'
         },
+        theme: {
+            label: 'Visual style',
+            buttonAria: 'Switch visual style',
+            options: {
+                classic: {
+                    name: 'Classic',
+                    desc: 'Refined Navy & Gold'
+                },
+                bento: {
+                    name: 'Bento Tech',
+                    desc: 'Minimalist graphite & cyan'
+                },
+                editorial: {
+                    name: 'Editorial',
+                    desc: 'Warm paper & high contrast'
+                }
+            }
+        },
         hero: {
             greeting: 'HI, MY NAME IS',
-            role: 'Full Stack Developer.',
-            description: 'I specialize in building exceptional digital experiences. Currently focused on creating accessible, user-centered products.',
+            role: 'Software Development Engineer.',
+            description: 'Specialized in Full-Stack architecture, scalable APIs (LTI standard), Artificial Intelligence integration, cross-platform automation, and results-driven DevOps infrastructure.',
             cta: 'Check out my work'
         },
         about: {
@@ -124,6 +242,44 @@ export const translations = {
                 creative: { title: 'Creative', desc: 'I design memorable and visually appealing experiences.' },
                 proactive: { title: 'Proactive', desc: 'Always looking for new technologies and best practices.' }
             }
+        },
+        experience: {
+            title: 'Experience',
+            presentBadge: 'Present',
+            items: [
+                {
+                    role: 'Software Development Engineer',
+                    period: 'Present',
+                    isCurrent: true,
+                    pillars: [
+                        {
+                            icon: 'code' as const,
+                            title: 'Full-Stack Development & APIs',
+                            desc: 'Design and implementation of robust, scalable web solutions and APIs (LTI standard) using Node.js, JavaScript, PHP, and Python.'
+                        },
+                        {
+                            icon: 'ai' as const,
+                            title: 'AI Integration & Automation',
+                            desc: 'Cross-platform workflow automation and integration of Artificial Intelligence capabilities under strict cybersecurity standards.'
+                        },
+                        {
+                            icon: 'server' as const,
+                            title: 'Infrastructure & DevOps',
+                            desc: 'Architecture and administration of high-availability servers, environment setup (dev, staging, prod), backup policies, and QA scripting.'
+                        },
+                        {
+                            icon: 'briefcase' as const,
+                            title: 'Project & Client Management',
+                            desc: 'Technical leadership across the full delivery lifecycle, ensuring client requirement alignment, code quality, and on-time delivery.'
+                        },
+                        {
+                            icon: 'wrench' as const,
+                            title: 'Support & Continuous Improvement',
+                            desc: 'Preventive maintenance, technical support for critical incidents, and internal process optimization to maximize operational efficiency.'
+                        }
+                    ]
+                }
+            ]
         },
         education: {
             title: 'Education',
@@ -151,16 +307,58 @@ export const translations = {
             ]
         },
         skills: {
-            title: 'Technical Skills'
+            title: 'Technical Skills',
+            groups: [
+                {
+                    title: 'Backend & APIs',
+                    items: ['Node.js', 'Express', 'Python', 'PHP', 'LTI Standard', 'C#']
+                },
+                {
+                    title: 'Frontend',
+                    items: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Redux Toolkit', 'Flutter']
+                },
+                {
+                    title: 'AI, Automation & Cloud/DevOps',
+                    items: [
+                        'AI Integration (Gemini/LLMs)',
+                        'Workflow Automation',
+                        'Linux / High-Availability Servers',
+                        'CI/QA Environments & Backups'
+                    ]
+                },
+                {
+                    title: 'Databases & ERP',
+                    items: ['SQL Server', 'Supabase', 'Firebase', 'SAP Business One', 'Git & GitHub']
+                }
+            ]
         },
         projects: {
             title: 'My Projects',
             featured: 'Featured Project',
             viewArchive: 'View Full Archive',
+            demoAdmin: 'Admin Demo',
+            demoVoter: 'Voter Demo',
+            previewFallback: 'Technical Preview',
             list: [
+                {
+                    title: 'OPEX Dashboard — E-Learning Script Tracker',
+                    description: 'Executive platform to monitor a 5-stage e-learning production pipeline (Planning, Scripting/QC, Audio, Graphics, and SCORM), integrated with Zoho WorkDrive/Projects and a pedagogical advisor powered by Google Gemini AI.'
+                },
+                {
+                    title: 'IT Inventory Management & Vault System (AccessGuard TI)',
+                    description: 'High-density corporate SaaS platform for hierarchical hardware asset management, role-based access control (RBAC), encrypted credential vault (AES-256), deep linking with cross-tab sync, and serverless integration with Zoho Catalyst/Flow.'
+                },
+                {
+                    title: 'Upper Room IBC — Despierta 2026 Conference',
+                    description: 'Offline-first event web platform featuring guided registration, automated QR ticket generation, interactive merchandise catalog, and a door Check-In panel with camera scanning and bidirectional Google Sheets sync.'
+                },
                 {
                     title: 'Youth Ministry - ICC',
                     description: 'Official website and registration platform for the youth ministry of the Iglesia Convertidos a Cristo (ICC). Features a premium minimalist design, live countdown, interactive activity schedule, and digital ticket generation with QR codes for the event.'
+                },
+                {
+                    title: 'ICC Voting System',
+                    description: 'Electronic voting web platform for membership admission at Iglesia Cristiana de Confraternidad (ICC). Enables members to vote securely and in real-time, integrated with Google Sheets via Apps Script, featuring an admin panel and a mobile-optimized voter interface.'
                 },
                 {
                     title: 'Barber Shop - Landing Page',
@@ -185,7 +383,7 @@ export const translations = {
             ]
         },
         contact: {
-            subtitle: '05. What\'s Next?',
+            subtitle: '06. What\'s Next?',
             title: 'Get In Touch',
             text: 'I\'m always interested in connecting with other professionals and exploring new tech collaborations. Whether you have a proposal or just want to say hi, I\'ll be happy to chat!',
             cta: 'Contact Me',
