@@ -165,37 +165,54 @@ const BentoDockLayout = () => {
                 </section>
 
                 {/* Experience Section */}
-                <section id="dock-experience" className="scroll-mt-10 space-y-5">
-                    <div className="flex items-end justify-between gap-4">
-                        <div>
-                            <span className="font-mono text-xs uppercase tracking-widest text-accent-primary">
-                                {t.experience.eyebrow}
-                            </span>
-                            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-text-heading mt-1">
-                                {t.experience.items[0].role}
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-                        {t.experience.items[0].pillars.map((pillar, idx) => {
-                            const Icon = PILLAR_ICONS[pillar.icon];
-                            return (
-                                <div
-                                    key={pillar.title}
-                                    className={`${idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3'} rounded-2xl border border-border-subtle bg-bg-surface p-6`}
-                                >
-                                    <div className="w-9 h-9 rounded-xl bg-accent-soft text-accent-primary flex items-center justify-center mb-3.5">
-                                        <Icon size={18} />
-                                    </div>
-                                    <h3 className="font-heading font-bold text-text-heading mb-1.5">
-                                        {pillar.title}
-                                    </h3>
-                                    <p className="text-sm text-text-secondary leading-relaxed">{pillar.desc}</p>
+                <section id="dock-experience" className="scroll-mt-10 space-y-10">
+                    {t.experience.items.map((exp) => (
+                        <div key={`${exp.role}-${exp.period}`} className="space-y-5">
+                            <div className="flex flex-wrap items-end justify-between gap-4">
+                                <div>
+                                    <span className="font-mono text-xs uppercase tracking-widest text-accent-primary">
+                                        {exp.period}
+                                    </span>
+                                    <h2 className="text-2xl sm:text-3xl font-heading font-bold text-text-heading mt-1">
+                                        {exp.role}
+                                    </h2>
+                                    <p className="text-sm text-text-secondary mt-0.5">{exp.company}</p>
                                 </div>
-                            );
-                        })}
-                    </div>
+                            </div>
+
+                            <div
+                                className={`grid grid-cols-1 md:grid-cols-2 ${
+                                    exp.pillars.length === 5 ? 'lg:grid-cols-6' : ''
+                                } gap-4`}
+                            >
+                                {exp.pillars.map((pillar, idx) => {
+                                    const Icon = PILLAR_ICONS[pillar.icon];
+                                    const spanClass =
+                                        exp.pillars.length === 5
+                                            ? idx < 3
+                                                ? 'lg:col-span-2'
+                                                : 'lg:col-span-3'
+                                            : '';
+                                    return (
+                                        <div
+                                            key={pillar.title}
+                                            className={`${spanClass} rounded-2xl border border-border-subtle bg-bg-surface p-6`}
+                                        >
+                                            <div className="w-9 h-9 rounded-xl bg-accent-soft text-accent-primary flex items-center justify-center mb-3.5">
+                                                <Icon size={18} />
+                                            </div>
+                                            <h3 className="font-heading font-bold text-text-heading mb-1.5">
+                                                {pillar.title}
+                                            </h3>
+                                            <p className="text-sm text-text-secondary leading-relaxed">
+                                                {pillar.desc}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ))}
                 </section>
 
                 {/* Projects Horizontal Scroll-Snap Carousel */}

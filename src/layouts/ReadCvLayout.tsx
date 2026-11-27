@@ -88,30 +88,37 @@ const ReadCvLayout = () => {
                 </section>
 
                 {/* Experience — 2-Column Read.cv Format */}
-                <section className="grid grid-cols-1 md:grid-cols-12 gap-4 pt-10 border-t border-border-subtle">
-                    <div className="md:col-span-3 space-y-1">
-                        <h2 className="font-mono text-xs uppercase tracking-wider text-text-secondary">
-                            {t.experience.title}
-                        </h2>
-                        <span className="inline-block font-mono text-xs text-accent-primary">
-                            {t.experience.presentBadge}
-                        </span>
-                    </div>
-                    <div className="md:col-span-9 space-y-5">
-                        <h3 className="text-lg font-heading font-bold text-text-heading">
-                            {t.experience.items[0].role}
-                        </h3>
-                        <ul className="space-y-4">
-                            {t.experience.items[0].pillars.map((pillar) => (
-                                <li key={pillar.title} className="space-y-1">
-                                    <span className="text-sm font-semibold text-text-heading block">
-                                        {pillar.title}
-                                    </span>
-                                    <p className="text-sm text-text-secondary leading-relaxed">{pillar.desc}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                <section className="space-y-10 pt-10 border-t border-border-subtle">
+                    <h2 className="font-mono text-xs uppercase tracking-wider text-text-secondary">
+                        {t.experience.title}
+                    </h2>
+                    {t.experience.items.map((exp) => (
+                        <div key={`${exp.role}-${exp.period}`} className="grid grid-cols-1 md:grid-cols-12 gap-4">
+                            <div className="md:col-span-3 space-y-1">
+                                <span className="inline-block font-mono text-xs text-accent-primary">
+                                    {exp.period}
+                                </span>
+                                <p className="text-xs text-text-secondary">{exp.company}</p>
+                            </div>
+                            <div className="md:col-span-9 space-y-4">
+                                <h3 className="text-lg font-heading font-bold text-text-heading">
+                                    {exp.role}
+                                </h3>
+                                <ul className="space-y-3.5">
+                                    {exp.pillars.map((pillar) => (
+                                        <li key={pillar.title} className="space-y-1">
+                                            <span className="text-sm font-semibold text-text-heading block">
+                                                {pillar.title}
+                                            </span>
+                                            <p className="text-sm text-text-secondary leading-relaxed">
+                                                {pillar.desc}
+                                            </p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
                 </section>
 
                 {/* Projects — Compact 3-Column Grid */}

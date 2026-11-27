@@ -230,45 +230,49 @@ const IdeWorkspaceLayout = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -6 }}
                                     transition={{ duration: 0.18 }}
-                                    className="space-y-6"
+                                    className="space-y-10"
                                 >
-                                    <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border-subtle">
-                                        <div>
-                                            <span className="font-mono text-xs text-accent-primary">
-                                                export const currentRole =
-                                            </span>
-                                            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-text-heading mt-1">
-                                                {t.experience.items[0].role}
-                                            </h2>
-                                        </div>
-                                        <span className="px-3 py-1 rounded-full bg-accent-soft text-accent-primary font-mono text-xs font-medium">
-                                            {t.experience.presentBadge}
-                                        </span>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {t.experience.items[0].pillars.map((pillar) => {
-                                            const Icon = PILLAR_ICONS[pillar.icon];
-                                            return (
-                                                <div
-                                                    key={pillar.title}
-                                                    className="p-5 rounded-xl border border-border-subtle bg-bg-surface flex items-start gap-3.5"
-                                                >
-                                                    <span className="p-2 rounded-lg bg-accent-soft text-accent-primary shrink-0">
-                                                        <Icon size={17} />
+                                    {t.experience.items.map((exp) => (
+                                        <div key={`${exp.role}-${exp.period}`} className="space-y-5">
+                                            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border-subtle">
+                                                <div>
+                                                    <span className="font-mono text-xs text-accent-primary">
+                                                        {exp.company}
                                                     </span>
-                                                    <div>
-                                                        <h3 className="font-heading font-bold text-text-heading text-base">
-                                                            {pillar.title}
-                                                        </h3>
-                                                        <p className="text-sm text-text-secondary mt-1 leading-relaxed">
-                                                            {pillar.desc}
-                                                        </p>
-                                                    </div>
+                                                    <h2 className="text-2xl sm:text-3xl font-heading font-bold text-text-heading mt-1">
+                                                        {exp.role}
+                                                    </h2>
                                                 </div>
-                                            );
-                                        })}
-                                    </div>
+                                                <span className="px-3 py-1 rounded-full bg-accent-soft text-accent-primary font-mono text-xs font-medium">
+                                                    {exp.period}
+                                                </span>
+                                            </div>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                {exp.pillars.map((pillar) => {
+                                                    const Icon = PILLAR_ICONS[pillar.icon];
+                                                    return (
+                                                        <div
+                                                            key={pillar.title}
+                                                            className="p-5 rounded-xl border border-border-subtle bg-bg-surface flex items-start gap-3.5"
+                                                        >
+                                                            <span className="p-2 rounded-lg bg-accent-soft text-accent-primary shrink-0">
+                                                                <Icon size={17} />
+                                                            </span>
+                                                            <div>
+                                                                <h3 className="font-heading font-bold text-text-heading text-base">
+                                                                    {pillar.title}
+                                                                </h3>
+                                                                <p className="text-sm text-text-secondary mt-1 leading-relaxed">
+                                                                    {pillar.desc}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    ))}
                                 </motion.div>
                             )}
 

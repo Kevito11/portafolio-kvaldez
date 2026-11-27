@@ -192,37 +192,47 @@ const SplitScreenLayout = () => {
                     </section>
 
                     {/* Experience */}
-                    <section id="split-experience" className="scroll-mt-16 space-y-5">
-                        <div className="flex items-center justify-between gap-2">
-                            <span className="font-mono text-xs uppercase tracking-widest text-accent-primary">
-                                // {t.experience.title}
-                            </span>
-                            <span className="font-mono text-xs text-text-secondary">
-                                {t.experience.items[0].role}
-                            </span>
-                        </div>
-                        <div className="space-y-3">
-                            {t.experience.items[0].pillars.map((pillar) => {
-                                const Icon = PILLAR_ICONS[pillar.icon];
-                                return (
-                                    <div
-                                        key={pillar.title}
-                                        className="p-4 rounded-lg border border-border-subtle bg-bg-surface hover:border-accent-primary/50 transition-colors flex items-start gap-3.5"
-                                    >
-                                        <span className="p-2 rounded-md bg-accent-soft text-accent-primary shrink-0 mt-0.5">
-                                            <Icon size={16} />
-                                        </span>
+                    <section id="split-experience" className="scroll-mt-16 space-y-6">
+                        <span className="font-mono text-xs uppercase tracking-widest text-accent-primary block">
+                            // {t.experience.title}
+                        </span>
+                        <div className="space-y-8">
+                            {t.experience.items.map((exp) => (
+                                <div key={`${exp.role}-${exp.period}`} className="space-y-3">
+                                    <div className="flex flex-wrap items-baseline justify-between gap-2 pb-2 border-b border-border-subtle">
                                         <div>
-                                            <h3 className="text-sm sm:text-base font-heading font-bold text-text-heading">
-                                                {pillar.title}
+                                            <h3 className="text-base font-heading font-bold text-text-heading">
+                                                {exp.role}
                                             </h3>
-                                            <p className="text-xs sm:text-sm text-text-secondary mt-1 leading-relaxed">
-                                                {pillar.desc}
-                                            </p>
+                                            <p className="text-xs text-text-secondary">{exp.company}</p>
                                         </div>
+                                        <span className="font-mono text-xs text-accent-primary">{exp.period}</span>
                                     </div>
-                                );
-                            })}
+                                    <div className="space-y-3">
+                                        {exp.pillars.map((pillar) => {
+                                            const Icon = PILLAR_ICONS[pillar.icon];
+                                            return (
+                                                <div
+                                                    key={pillar.title}
+                                                    className="p-4 rounded-lg border border-border-subtle bg-bg-surface hover:border-accent-primary/50 transition-colors flex items-start gap-3.5"
+                                                >
+                                                    <span className="p-2 rounded-md bg-accent-soft text-accent-primary shrink-0 mt-0.5">
+                                                        <Icon size={16} />
+                                                    </span>
+                                                    <div>
+                                                        <h4 className="text-sm sm:text-base font-heading font-bold text-text-heading">
+                                                            {pillar.title}
+                                                        </h4>
+                                                        <p className="text-xs sm:text-sm text-text-secondary mt-1 leading-relaxed">
+                                                            {pillar.desc}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </section>
 

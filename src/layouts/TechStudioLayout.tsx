@@ -233,41 +233,46 @@ const TechStudioLayout = () => {
                 </section>
 
                 {/* Horizontal Experience Cards with Prominent Icons */}
-                <section id="studio-experience" className="scroll-mt-20 space-y-6">
-                    <div className="flex flex-wrap items-end justify-between gap-2">
-                        <div>
-                            <span className="font-mono text-xs uppercase tracking-widest text-accent-primary">
-                                {t.experience.presentBadge}
-                            </span>
-                            <h2 className="text-3xl font-heading font-bold text-text-heading mt-1">
-                                {t.experience.items[0].role}
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div className="space-y-3">
-                        {t.experience.items[0].pillars.map((pillar) => {
-                            const Icon = PILLAR_ICONS[pillar.icon];
-                            return (
-                                <div
-                                    key={pillar.title}
-                                    className="rounded-2xl border border-border-subtle bg-bg-surface p-6 flex flex-col sm:flex-row sm:items-center gap-5 hover:border-border-strong transition-colors"
-                                >
-                                    <div className="w-12 h-12 rounded-2xl bg-accent-soft text-accent-primary flex items-center justify-center shrink-0">
-                                        <Icon size={22} />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-heading font-bold text-text-heading">
-                                            {pillar.title}
-                                        </h3>
-                                        <p className="text-sm text-text-secondary mt-1 leading-relaxed">
-                                            {pillar.desc}
-                                        </p>
-                                    </div>
+                <section id="studio-experience" className="scroll-mt-20 space-y-12">
+                    {t.experience.items.map((exp) => (
+                        <div key={`${exp.role}-${exp.period}`} className="space-y-5">
+                            <div className="flex flex-wrap items-end justify-between gap-2">
+                                <div>
+                                    <span className="font-mono text-xs uppercase tracking-widest text-accent-primary">
+                                        {exp.period}
+                                    </span>
+                                    <h2 className="text-3xl font-heading font-bold text-text-heading mt-1">
+                                        {exp.role}
+                                    </h2>
+                                    <p className="text-sm text-text-secondary mt-0.5">{exp.company}</p>
                                 </div>
-                            );
-                        })}
-                    </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                {exp.pillars.map((pillar) => {
+                                    const Icon = PILLAR_ICONS[pillar.icon];
+                                    return (
+                                        <div
+                                            key={pillar.title}
+                                            className="rounded-2xl border border-border-subtle bg-bg-surface p-6 flex flex-col sm:flex-row sm:items-center gap-5 hover:border-border-strong transition-colors"
+                                        >
+                                            <div className="w-12 h-12 rounded-2xl bg-accent-soft text-accent-primary flex items-center justify-center shrink-0">
+                                                <Icon size={22} />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-lg font-heading font-bold text-text-heading">
+                                                    {pillar.title}
+                                                </h3>
+                                                <p className="text-sm text-text-secondary mt-1 leading-relaxed">
+                                                    {pillar.desc}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ))}
                 </section>
 
                 {/* Skills + About & CTA */}

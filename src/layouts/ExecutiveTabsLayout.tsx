@@ -215,40 +215,58 @@ const ExecutiveTabsLayout = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
                             transition={{ duration: 0.2 }}
-                            className="space-y-6"
+                            className="space-y-10"
                         >
-                            <div className="flex flex-wrap items-center justify-between gap-3">
-                                <div>
-                                    <h2 className="text-2xl font-heading font-bold text-text-heading">
-                                        {t.experience.items[0].role}
-                                    </h2>
-                                    <p className="text-sm text-text-secondary mt-1">{t.experience.subtitle}</p>
-                                </div>
-                                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border-subtle bg-bg-surface font-mono text-xs text-accent-primary">
-                                    <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
-                                    {t.experience.presentBadge}
-                                </span>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-                                {t.experience.items[0].pillars.map((pillar, idx) => {
-                                    const Icon = PILLAR_ICONS[pillar.icon];
-                                    return (
-                                        <div
-                                            key={pillar.title}
-                                            className={`${idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3'} rounded-2xl border border-border-subtle bg-bg-surface p-6 shadow-xs hover:border-border-strong transition-colors`}
-                                        >
-                                            <div className="w-10 h-10 rounded-xl bg-accent-soft text-accent-primary flex items-center justify-center mb-4">
-                                                <Icon size={18} />
-                                            </div>
-                                            <h3 className="text-base font-heading font-bold text-text-heading mb-1.5">
-                                                {pillar.title}
-                                            </h3>
-                                            <p className="text-sm text-text-secondary leading-relaxed">{pillar.desc}</p>
+                            {t.experience.items.map((exp) => (
+                                <div key={`${exp.role}-${exp.period}`} className="space-y-5">
+                                    <div className="flex flex-wrap items-center justify-between gap-3">
+                                        <div>
+                                            <h2 className="text-2xl font-heading font-bold text-text-heading">
+                                                {exp.role}
+                                            </h2>
+                                            <p className="text-sm text-text-secondary mt-0.5">{exp.company}</p>
                                         </div>
-                                    );
-                                })}
-                            </div>
+                                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border-subtle bg-bg-surface font-mono text-xs text-accent-primary">
+                                            {exp.isCurrent && (
+                                                <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
+                                            )}
+                                            {exp.period}
+                                        </span>
+                                    </div>
+
+                                    <div
+                                        className={`grid grid-cols-1 md:grid-cols-2 ${
+                                            exp.pillars.length === 5 ? 'lg:grid-cols-6' : ''
+                                        } gap-4`}
+                                    >
+                                        {exp.pillars.map((pillar, idx) => {
+                                            const Icon = PILLAR_ICONS[pillar.icon];
+                                            const spanClass =
+                                                exp.pillars.length === 5
+                                                    ? idx < 3
+                                                        ? 'lg:col-span-2'
+                                                        : 'lg:col-span-3'
+                                                    : '';
+                                            return (
+                                                <div
+                                                    key={pillar.title}
+                                                    className={`${spanClass} rounded-2xl border border-border-subtle bg-bg-surface p-6 shadow-xs hover:border-border-strong transition-colors`}
+                                                >
+                                                    <div className="w-10 h-10 rounded-xl bg-accent-soft text-accent-primary flex items-center justify-center mb-4">
+                                                        <Icon size={18} />
+                                                    </div>
+                                                    <h3 className="text-base font-heading font-bold text-text-heading mb-1.5">
+                                                        {pillar.title}
+                                                    </h3>
+                                                    <p className="text-sm text-text-secondary leading-relaxed">
+                                                        {pillar.desc}
+                                                    </p>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            ))}
                         </motion.div>
                     )}
 

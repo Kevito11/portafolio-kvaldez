@@ -191,27 +191,32 @@ const CommandLinearLayout = () => {
                 </section>
 
                 {/* Experience Rows */}
-                <section id="lin-experience" className="scroll-mt-20 space-y-4">
-                    <div className="flex items-center justify-between">
-                        <h2 className="text-lg font-heading font-semibold text-text-heading">
-                            {t.experience.items[0].role}
-                        </h2>
-                        <span className="font-mono text-xs text-accent-primary">
-                            {t.experience.presentBadge}
-                        </span>
-                    </div>
-                    <div className="rounded-xl border border-border-subtle bg-bg-surface divide-y divide-border-subtle">
-                        {t.experience.items[0].pillars.map((pillar) => (
-                            <div key={pillar.title} className="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-12 gap-2">
-                                <h3 className="md:col-span-4 text-sm font-semibold text-text-heading">
-                                    {pillar.title}
-                                </h3>
-                                <p className="md:col-span-8 text-sm text-text-secondary leading-relaxed">
-                                    {pillar.desc}
-                                </p>
+                <section id="lin-experience" className="scroll-mt-20 space-y-8">
+                    {t.experience.items.map((exp) => (
+                        <div key={`${exp.role}-${exp.period}`} className="space-y-3">
+                            <div className="flex flex-wrap items-baseline justify-between gap-2">
+                                <div>
+                                    <h2 className="text-lg font-heading font-semibold text-text-heading">
+                                        {exp.role}
+                                    </h2>
+                                    <p className="text-xs text-text-secondary">{exp.company}</p>
+                                </div>
+                                <span className="font-mono text-xs text-accent-primary">{exp.period}</span>
                             </div>
-                        ))}
-                    </div>
+                            <div className="rounded-xl border border-border-subtle bg-bg-surface divide-y divide-border-subtle">
+                                {exp.pillars.map((pillar) => (
+                                    <div key={pillar.title} className="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-12 gap-2">
+                                        <h3 className="md:col-span-4 text-sm font-semibold text-text-heading">
+                                            {pillar.title}
+                                        </h3>
+                                        <p className="md:col-span-8 text-sm text-text-secondary leading-relaxed">
+                                            {pillar.desc}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </section>
 
                 {/* Skills & Education */}

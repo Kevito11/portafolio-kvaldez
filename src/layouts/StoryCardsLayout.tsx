@@ -209,40 +209,51 @@ const StoryCardsLayout = () => {
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="scroll-mt-20 rounded-3xl border border-border-subtle bg-bg-surface p-8 sm:p-12 space-y-6 shadow-xs"
+                    className="scroll-mt-20 rounded-3xl border border-border-subtle bg-bg-surface p-8 sm:p-12 space-y-10 shadow-xs"
                 >
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                            <span className="font-mono text-xs uppercase tracking-widest text-accent-primary">
-                                {t.experience.eyebrow}
-                            </span>
-                            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-text-heading mt-1">
-                                {t.experience.items[0].role}
-                            </h2>
-                        </div>
-                        <span className="px-3 py-1 rounded-full bg-accent-soft text-accent-primary font-mono text-xs">
-                            {t.experience.presentBadge}
-                        </span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {t.experience.items[0].pillars.map((pillar) => {
-                            const Icon = PILLAR_ICONS[pillar.icon];
-                            return (
-                                <div
-                                    key={pillar.title}
-                                    className="p-5 rounded-2xl border border-border-subtle bg-bg-primary/60 flex items-start gap-3.5"
-                                >
-                                    <span className="p-2 rounded-xl bg-accent-soft text-accent-primary shrink-0">
-                                        <Icon size={17} />
+                    {t.experience.items.map((exp, expIdx) => (
+                        <div
+                            key={`${exp.role}-${exp.period}`}
+                            className={`space-y-5 ${expIdx > 0 ? 'pt-8 border-t border-border-subtle' : ''}`}
+                        >
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                                <div>
+                                    <span className="font-mono text-xs uppercase tracking-widest text-accent-primary">
+                                        {exp.company}
                                     </span>
-                                    <div>
-                                        <h3 className="font-heading font-bold text-text-heading">{pillar.title}</h3>
-                                        <p className="text-sm text-text-secondary mt-1 leading-relaxed">{pillar.desc}</p>
-                                    </div>
+                                    <h2 className="text-2xl sm:text-3xl font-heading font-bold text-text-heading mt-1">
+                                        {exp.role}
+                                    </h2>
                                 </div>
-                            );
-                        })}
-                    </div>
+                                <span className="px-3 py-1 rounded-full bg-accent-soft text-accent-primary font-mono text-xs">
+                                    {exp.period}
+                                </span>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {exp.pillars.map((pillar) => {
+                                    const Icon = PILLAR_ICONS[pillar.icon];
+                                    return (
+                                        <div
+                                            key={pillar.title}
+                                            className="p-5 rounded-2xl border border-border-subtle bg-bg-primary/60 flex items-start gap-3.5"
+                                        >
+                                            <span className="p-2 rounded-xl bg-accent-soft text-accent-primary shrink-0">
+                                                <Icon size={17} />
+                                            </span>
+                                            <div>
+                                                <h3 className="font-heading font-bold text-text-heading">
+                                                    {pillar.title}
+                                                </h3>
+                                                <p className="text-sm text-text-secondary mt-1 leading-relaxed">
+                                                    {pillar.desc}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ))}
                 </motion.section>
 
                 {/* Projects Card with Quick Category Filters */}

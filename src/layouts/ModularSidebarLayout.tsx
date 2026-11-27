@@ -178,38 +178,48 @@ const ModularSidebarLayout = () => {
                     </section>
 
                     {/* Experience Module */}
-                    <section id="mod-experience" className="scroll-mt-20 rounded-2xl border border-border-subtle bg-bg-surface p-6 sm:p-8 space-y-5">
-                        <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-border-subtle">
-                            <h2 className="text-xl sm:text-2xl font-heading font-bold text-text-heading">
-                                {t.experience.items[0].role}
-                            </h2>
-                            <span className="px-3 py-1 rounded-full bg-accent-soft text-accent-primary font-mono text-xs">
-                                {t.experience.presentBadge}
-                            </span>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {t.experience.items[0].pillars.map((pillar) => {
-                                const Icon = PILLAR_ICONS[pillar.icon];
-                                return (
-                                    <div
-                                        key={pillar.title}
-                                        className="p-4 rounded-xl border border-border-subtle bg-bg-primary/60 flex items-start gap-3"
-                                    >
-                                        <span className="p-2 rounded-lg bg-accent-soft text-accent-primary shrink-0">
-                                            <Icon size={16} />
-                                        </span>
-                                        <div>
-                                            <h3 className="font-heading font-bold text-sm sm:text-base text-text-heading">
-                                                {pillar.title}
-                                            </h3>
-                                            <p className="text-xs sm:text-sm text-text-secondary mt-1 leading-relaxed">
-                                                {pillar.desc}
-                                            </p>
-                                        </div>
+                    <section id="mod-experience" className="scroll-mt-20 space-y-5">
+                        {t.experience.items.map((exp) => (
+                            <div
+                                key={`${exp.role}-${exp.period}`}
+                                className="rounded-2xl border border-border-subtle bg-bg-surface p-6 sm:p-8 space-y-5"
+                            >
+                                <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-border-subtle">
+                                    <div>
+                                        <h2 className="text-xl sm:text-2xl font-heading font-bold text-text-heading">
+                                            {exp.role}
+                                        </h2>
+                                        <p className="text-xs sm:text-sm text-text-secondary mt-0.5">{exp.company}</p>
                                     </div>
-                                );
-                            })}
-                        </div>
+                                    <span className="px-3 py-1 rounded-full bg-accent-soft text-accent-primary font-mono text-xs">
+                                        {exp.period}
+                                    </span>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {exp.pillars.map((pillar) => {
+                                        const Icon = PILLAR_ICONS[pillar.icon];
+                                        return (
+                                            <div
+                                                key={pillar.title}
+                                                className="p-4 rounded-xl border border-border-subtle bg-bg-primary/60 flex items-start gap-3"
+                                            >
+                                                <span className="p-2 rounded-lg bg-accent-soft text-accent-primary shrink-0">
+                                                    <Icon size={16} />
+                                                </span>
+                                                <div>
+                                                    <h3 className="font-heading font-bold text-sm sm:text-base text-text-heading">
+                                                        {pillar.title}
+                                                    </h3>
+                                                    <p className="text-xs sm:text-sm text-text-secondary mt-1 leading-relaxed">
+                                                        {pillar.desc}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        ))}
                     </section>
 
                     {/* Projects Module */}

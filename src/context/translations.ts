@@ -118,7 +118,7 @@ export const translations = {
             roleBadge: 'Ingeniero en Sistemas',
             switchPhoto: 'Cambiar foto de perfil',
             p1: '¡Hola! Soy Kevin, <gold>Ingeniero en Sistemas</gold> con gran pasión por el desarrollo de software y la resolución de problemas técnicos. Me destaco por mi capacidad de aprender rápido, adaptarme a equipos de trabajo dinámicos y aportar soluciones funcionales desde el primer día.',
-            p2: 'Con base en <gold>República Dominicana</gold>, mi experiencia abarca desde plataformas web y APIs empresariales hasta automatización con IA y aplicaciones móviles. Me enfoco en escribir software limpio, confiable y preparado para escalar como <gold>Ingeniero Desarrollador</gold>.',
+            p2: 'Con base en <gold>República Dominicana</gold>, mi experiencia abarca desde plataformas web y APIs empresariales hasta automatización con IA y aplicaciones móviles. Como <gold>Ingeniero Desarrollador de Software</gold>, me enfoco en construir soluciones seguras, limpias y de alto rendimiento orientadas a resultados.',
             traits: {
                 analytical: { title: 'Analítico', desc: 'Descompongo problemas complejos en arquitecturas limpias y lógicas.' },
                 creative: { title: 'Creativo', desc: 'Diseño interfaces cuidadas, rápidas y pensadas para el usuario.' },
@@ -128,12 +128,13 @@ export const translations = {
         experience: {
             eyebrow: 'Trayectoria',
             title: 'Experiencia',
-            subtitle: 'Liderazgo técnico extremo a extremo en desarrollo, IA e infraestructura.',
+            subtitle: 'Liderazgo técnico extremo a extremo en desarrollo, IA, infraestructura y soporte empresarial.',
             presentBadge: 'Actualidad',
             items: [
                 {
                     role: 'Ingeniero Desarrollador de Software',
-                    period: 'Actualidad',
+                    company: 'OPEX Solutions · Santo Domingo, RD (Híbrido)',
+                    period: '2026 – Actualidad',
                     isCurrent: true,
                     pillars: [
                         {
@@ -144,7 +145,7 @@ export const translations = {
                         {
                             icon: 'ai' as const,
                             title: 'Integración de IA & Automatización',
-                            desc: 'Automatización de flujos de trabajo interplataforma e integración de capacidades de Inteligencia Artificial cumpliendo rigurosos estándares de ciberseguridad.'
+                            desc: 'Automatización de flujos de trabajo interplataforma (ecosistema Zoho, webhooks) e integración de capacidades de Inteligencia Artificial cumpliendo rigurosos estándares de ciberseguridad.'
                         },
                         {
                             icon: 'server' as const,
@@ -162,6 +163,34 @@ export const translations = {
                             desc: 'Mantenimiento preventivo, soporte técnico a incidencias críticas y optimización de procesos internos para maximizar la eficiencia operativa.'
                         }
                     ]
+                },
+                {
+                    role: 'Soporte Técnico',
+                    company: 'Industrias La Nutriciosa, S.A.',
+                    period: '2022 – 2026',
+                    isCurrent: false,
+                    pillars: [
+                        {
+                            icon: 'code' as const,
+                            title: 'Automatización de Procesos',
+                            desc: 'Optimización y automatización de tareas repetitivas utilizando macros y herramientas internas para agilizar la operación diaria.'
+                        },
+                        {
+                            icon: 'server' as const,
+                            title: 'Administración de SAP Business One',
+                            desc: 'Administración y soporte continuo de SAP B1, resolviendo problemas funcionales y técnicos con rapidez para todos los departamentos.'
+                        },
+                        {
+                            icon: 'wrench' as const,
+                            title: 'Soporte Técnico Integral',
+                            desc: 'Soporte directo de software y hardware a usuarios administrativos y operativos, documentación técnica y capacitación interna.'
+                        },
+                        {
+                            icon: 'briefcase' as const,
+                            title: 'Proveedores & Inventario TI',
+                            desc: 'Coordinación de proveedores de tecnología, continuidad del servicio tecnológico y control de inventario de equipos.'
+                        }
+                    ]
                 }
             ]
         },
@@ -172,24 +201,29 @@ export const translations = {
             defaultBadge: 'Certificación',
             items: [
                 {
-                    institution: 'Universidad Dominicana O&M',
-                    degree: 'Ingeniería en Sistemas y Computación',
-                    date: '2021'
-                },
-                {
-                    institution: 'Talento Digital',
-                    degree: 'Desarrollo Web Full Stack',
-                    date: ''
-                },
-                {
-                    institution: 'UDEMY',
-                    degree: 'Flutter y Desarrollo Móvil',
-                    date: ''
+                    institution: 'Instituto Tecnológico de Las Américas – ITLA',
+                    degree: 'Programación en Python',
+                    date: '2026'
                 },
                 {
                     institution: 'UDEMY',
                     degree: 'React',
-                    date: ''
+                    date: 'Julio 2025'
+                },
+                {
+                    institution: 'UDEMY',
+                    degree: 'Flutter y Desarrollo Móvil',
+                    date: 'Febrero 2025'
+                },
+                {
+                    institution: 'Talento Digital',
+                    degree: 'Desarrollo Web Full Stack',
+                    date: '2025'
+                },
+                {
+                    institution: 'Universidad Dominicana O&M',
+                    degree: 'Ingeniería en Sistemas y Computación',
+                    date: '2021'
                 }
             ]
         },
@@ -200,7 +234,7 @@ export const translations = {
             groups: [
                 {
                     title: 'Backend & APIs',
-                    items: ['Node.js', 'Express', 'Python', 'PHP', 'Estándar LTI', 'C#']
+                    items: ['Node.js', 'Express', 'Python', 'PHP', 'APIs REST / LTI', 'C#']
                 },
                 {
                     title: 'Frontend',
@@ -210,6 +244,7 @@ export const translations = {
                     title: 'IA, Automatización & Cloud/DevOps',
                     items: [
                         'Integración de IA (Gemini/LLMs)',
+                        'Ecosistema Zoho',
                         'Automatización de Flujos',
                         'Linux / Servidores Alta Disponibilidad',
                         'Entornos CI/QA & Backups'
@@ -411,7 +446,7 @@ export const translations = {
             roleBadge: 'Systems Engineer',
             switchPhoto: 'Switch profile photo',
             p1: 'Hello! I\'m Kevin, a <gold>Systems Engineer</gold> with a passion for software development and technical problem solving. I stand out for my ability to learn quickly, adapt to dynamic teams, and deliver functional solutions from day one.',
-            p2: 'Based in the <gold>Dominican Republic</gold>, my experience spans enterprise web platforms, scalable APIs, AI automation, and mobile apps. I focus on writing clean, reliable software built to scale as a <gold>Software Engineer</gold>.',
+            p2: 'Based in the <gold>Dominican Republic</gold>, my experience spans enterprise web platforms, scalable APIs, AI automation, and mobile apps. As a <gold>Software Development Engineer</gold>, I focus on building secure, clean, high-performance solutions driven by real results.',
             traits: {
                 analytical: { title: 'Analytical', desc: 'I break down complex problems into clean, logical architectures.' },
                 creative: { title: 'Creative', desc: 'I craft thoughtful, fast, user-centered digital interfaces.' },
@@ -421,12 +456,13 @@ export const translations = {
         experience: {
             eyebrow: 'Career',
             title: 'Experience',
-            subtitle: 'End-to-end technical ownership across development, AI, and infrastructure.',
+            subtitle: 'End-to-end technical ownership across development, AI, infrastructure, and enterprise IT.',
             presentBadge: 'Present',
             items: [
                 {
                     role: 'Software Development Engineer',
-                    period: 'Present',
+                    company: 'OPEX Solutions · Santo Domingo, DR (Hybrid)',
+                    period: '2026 – Present',
                     isCurrent: true,
                     pillars: [
                         {
@@ -437,7 +473,7 @@ export const translations = {
                         {
                             icon: 'ai' as const,
                             title: 'AI Integration & Automation',
-                            desc: 'Cross-platform workflow automation and integration of Artificial Intelligence capabilities under strict cybersecurity standards.'
+                            desc: 'Cross-platform workflow automation (Zoho ecosystem, webhooks) and integration of Artificial Intelligence capabilities under strict cybersecurity standards.'
                         },
                         {
                             icon: 'server' as const,
@@ -455,6 +491,34 @@ export const translations = {
                             desc: 'Preventive maintenance, technical support for critical incidents, and internal process optimization to maximize operational efficiency.'
                         }
                     ]
+                },
+                {
+                    role: 'Technical Support Specialist',
+                    company: 'Industrias La Nutriciosa, S.A.',
+                    period: '2022 – 2026',
+                    isCurrent: false,
+                    pillars: [
+                        {
+                            icon: 'code' as const,
+                            title: 'Process Automation',
+                            desc: 'Optimization and automation of repetitive workflows using macros and internal tools to streamline daily operations.'
+                        },
+                        {
+                            icon: 'server' as const,
+                            title: 'SAP Business One Administration',
+                            desc: 'Ongoing administration and support of SAP B1, rapidly resolving functional and technical issues across departments.'
+                        },
+                        {
+                            icon: 'wrench' as const,
+                            title: 'Comprehensive IT Support',
+                            desc: 'Direct software and hardware support for administrative and operational staff, technical documentation, and internal user training.'
+                        },
+                        {
+                            icon: 'briefcase' as const,
+                            title: 'Vendors & IT Inventory',
+                            desc: 'Technology vendor coordination, IT service continuity, and corporate hardware inventory management.'
+                        }
+                    ]
                 }
             ]
         },
@@ -465,24 +529,29 @@ export const translations = {
             defaultBadge: 'Certification',
             items: [
                 {
-                    institution: 'Dominican University O&M',
-                    degree: 'Systems and Computing Engineering',
-                    date: '2021'
-                },
-                {
-                    institution: 'Talento Digital',
-                    degree: 'Full Stack Web Development',
-                    date: ''
-                },
-                {
-                    institution: 'UDEMY',
-                    degree: 'Flutter & Mobile Development',
-                    date: ''
+                    institution: 'Instituto Tecnológico de Las Américas – ITLA',
+                    degree: 'Python Programming',
+                    date: '2026'
                 },
                 {
                     institution: 'UDEMY',
                     degree: 'React',
-                    date: ''
+                    date: 'July 2025'
+                },
+                {
+                    institution: 'UDEMY',
+                    degree: 'Flutter & Mobile Development',
+                    date: 'February 2025'
+                },
+                {
+                    institution: 'Talento Digital',
+                    degree: 'Full Stack Web Development',
+                    date: '2025'
+                },
+                {
+                    institution: 'Dominican University O&M',
+                    degree: 'Systems and Computing Engineering',
+                    date: '2021'
                 }
             ]
         },
@@ -493,7 +562,7 @@ export const translations = {
             groups: [
                 {
                     title: 'Backend & APIs',
-                    items: ['Node.js', 'Express', 'Python', 'PHP', 'LTI Standard', 'C#']
+                    items: ['Node.js', 'Express', 'Python', 'PHP', 'REST / LTI APIs', 'C#']
                 },
                 {
                     title: 'Frontend',
@@ -503,6 +572,7 @@ export const translations = {
                     title: 'AI, Automation & Cloud/DevOps',
                     items: [
                         'AI Integration (Gemini/LLMs)',
+                        'Zoho Ecosystem',
                         'Workflow Automation',
                         'Linux / High-Availability Servers',
                         'CI/QA Environments & Backups'
